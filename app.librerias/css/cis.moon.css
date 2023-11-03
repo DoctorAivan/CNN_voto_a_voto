@@ -1,0 +1,41 @@
+:root
+{
+	--color-bg-body					:	#191a21;
+	--color-bg-box					:	#252833;
+	--color-bg-box-a				:	#2e323f;
+	--color-bg-box-b				:	#21242f;
+	--color-bg-box-c				:	#353947;
+	--color-bg-box-hover			:	#3a3e4b;
+	--color-bg-shadow				:	rgba(0, 0, 0, 0.15);
+	--color-bg-shadow-light			:	rgba(0, 0, 0, 0.1);
+	--color-bg-shadow-hard			:	rgba(0, 0, 0, 0.4);
+	
+	--color-bg-navegacion			:	#252833;
+	--color-bg-navegacion-a			:	#404659;
+	--color-bg-navegacion-texto		:	#ffffff;
+	--color-bg-navegacion-texto-a	:	#4e556c;
+	
+	--color-texto-1					:	#cccccc;
+	--color-texto-1-a				:	#aaaaaa;
+	--color-texto-2					:	#82838f;
+	--color-texto-parrafos			:	#999999;
+	
+	--color-border-1				:	#454757;
+	--color-border-2				:	#373842;
+	--color-border-3				:	#1b1c20;
+
+	--filtro-brightness-light		:	brightness(1.1);
+	--filtro-brightness-over		:	brightness(1.3);
+	--filtro-brightness-on			:	brightness(1.4);
+	--filtro-scale-over				:	scale(1.05);
+	--filtro-scale-on				:	scale(1.05);
+	
+	--color-form-input				:	#fff;
+
+	--filtro-cancha					:	brightness(0.8) grayscale(40%);
+}
+
+.panton
+{
+	color: #4e556c;
+}

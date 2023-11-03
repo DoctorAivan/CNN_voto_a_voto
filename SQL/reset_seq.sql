@@ -1,0 +1,1 @@
+alter sequence mesa_id_seq restart with 1;

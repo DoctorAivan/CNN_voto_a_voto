@@ -1,0 +1,490 @@
+	.livebox
+	{
+		position: fixed;
+		z-index: 801;
+	    width: calc(600px);
+	    background: var(--color-bg-box);
+	    box-shadow: 0px 20px 60px var(--color-bg-shadow-hard);
+	    border-radius: var(--border-radius);
+	    cursor: default;
+		display: none;
+	}
+		.livebox-id
+		{
+			position: absolute;
+			z-index: 5;
+			top: 0px;
+			left: 0px;
+			width: 100px;
+			height: 100%;
+		    color: var(--color-bg-box);
+		    background: -webkit-linear-gradient(to bottom right , var(--color-texto-1) , var(--color-texto-1-a) 95%);
+		    background: -moz-linear-gradient(to bottom right , var(--color-texto-1) , var(--color-texto-1-a) 95%);
+		    background: -ms-linear-gradient(to bottom right , var(--color-texto-1) , var(--color-texto-1-a) 95%);
+		    background: linear-gradient(to bottom right , var(--color-texto-1) , var(--color-texto-1-a) 95%);
+		}
+			.livebox-id span
+			{
+				float: left;
+				width: 100%;
+				text-align: center;
+				font-size: 2.8rem;
+				font-weight: 500;
+				padding: 37px 0 0 0;
+			}
+		.livebox-bloqueado
+		{
+			position: absolute;
+			width: 100%;
+			height: 100%;
+			background: var(--color-bg-box);
+			opacity: 0.25;
+			z-index: 999;
+			display: none;
+		}
+		.livebox-cerrar
+		{
+			z-index: 5;
+			position: absolute;
+			right: 0px;
+		    color: var(--color-bg-box);
+		    background: -webkit-linear-gradient(to bottom right , var(--color-texto-1) , var(--color-texto-1-a) 95%);
+		    background: -moz-linear-gradient(to bottom right , var(--color-texto-1) , var(--color-texto-1-a) 95%);
+		    background: -ms-linear-gradient(to bottom right , var(--color-texto-1) , var(--color-texto-1-a) 95%);
+		    background: linear-gradient(to bottom right , var(--color-texto-1) , var(--color-texto-1-a) 95%);
+			padding: 11px 12px 10px 14px;
+			border-radius: 0 var(--border-radius) 0 var(--border-radius);
+			cursor: pointer;
+		}
+			.livebox-cerrar i
+			{
+				color: var(--color-bg-box);
+			    font-size: 1.3rem;
+			    line-height: 1.3rem;
+			}
+		.livebox-cargando
+		{
+			z-index: 2;
+			display: none;
+			position: absolute;
+			width: 100%;
+			height: 100%;
+		    background: -webkit-linear-gradient(to bottom right , var(--color-bg-box-a) , var(--color-border-1) 95%);
+		    background: -moz-linear-gradient(to bottom right , var(--color-bg-box-a) , var(--color-border-1) 95%);
+		    background: -ms-linear-gradient(to bottom right , var(--color-bg-box-a) , var(--color-border-1) 95%);
+		    background: linear-gradient(to bottom right , var(--color-bg-box-a) , var(--color-border-1) 95%);
+			text-align: center;
+		}
+			.livebox-cargando i
+			{
+				color: var(--color-texto-1);
+				font-size: 2rem;
+				animation:animacionRotar360 1.5s linear infinite;
+				margin: 19px 0 0 0;
+			}
+			
+		.livebox header
+		{
+			float: left;
+			position: relative;
+			width: calc(100% - 60px);
+			background: var(--color-bg-box);
+			border-bottom: solid 1px var(--color-border-1);
+			padding: 23px var(--padding-box) 27px var(--padding-box);
+			border-radius: var(--border-radius) var(--border-radius) 0 0;
+			overflow: hidden;
+		}
+			.livebox header .icono
+			{
+				margin-left: 20px;
+			}
+			.livebox header span
+			{
+			    float: left;
+			}
+				.livebox header span i
+				{
+					color: var(--color-texto-1);
+					font-size: 2.3rem;
+					line-height: 2.3rem;
+					margin: 3px 0 0 0;
+				}
+			.livebox header h2
+			{
+				float: left;
+				width: calc(100% - 100px);
+				background: -webkit-linear-gradient(to bottom , var(--color-texto-1) , var(--color-texto-1-a) 85%);
+				background: -moz-linear-gradient(to bottom , var(--color-texto-1) , var(--color-texto-1-a) 85%);
+				background: -ms-linear-gradient(to bottom , var(--color-texto-1) , var(--color-texto-1-a) 85%);
+				background: linear-gradient(to bottom , var(--color-texto-1) , var(--color-texto-1-a) 85%);
+				-webkit-background-clip: text;
+				-webkit-text-fill-color: transparent;
+				font-size: 1.35rem;
+				line-height: 1.35rem;
+				font-weight: 500;
+			}
+				.livebox header h2 b
+				{
+					background: -webkit-linear-gradient(to bottom , var(--color-texto-1) , var(--color-texto-1-a) 85%);
+					background: -moz-linear-gradient(to bottom , var(--color-texto-1) , var(--color-texto-1-a) 85%);
+					background: -ms-linear-gradient(to bottom , var(--color-texto-1) , var(--color-texto-1-a) 85%);
+					background: linear-gradient(to bottom , var(--color-texto-1) , var(--color-texto-1-a) 85%);
+					-webkit-background-clip: text;
+					-webkit-text-fill-color: transparent;
+					font-size: 1.35rem;
+					line-height: 1.35rem;
+					text-transform: uppercase;
+					font-weight: 300;
+					margin: 0 0 0 12px;
+				}
+			.livebox header h3
+			{
+				float: left;
+				width: calc(100% - 100px);
+				color: var(--color-texto-2);
+				font-size: 1rem;
+				line-height: 1rem;
+				margin: 5px 0 0 0;
+			}
+
+		.livebox footer
+		{
+			float: left;
+			width: 100%;
+			border-radius: 0 0 var(--border-radius) var(--border-radius);
+			overflow: hidden;
+		}
+			.livebox footer .on
+			{
+				z-index: 1;
+				float: left;
+				width: 50%;
+				
+			    color: var(--color-bg-box);
+			    background: -webkit-linear-gradient(to bottom right , var(--color-texto-1) , var(--color-texto-1-a) 95%);
+			    background: -moz-linear-gradient(to bottom right , var(--color-texto-1) , var(--color-texto-1-a) 95%);
+			    background: -ms-linear-gradient(to bottom right , var(--color-texto-1) , var(--color-texto-1-a) 95%);
+			    background: linear-gradient(to bottom right , var(--color-texto-1) , var(--color-texto-1-a) 95%);
+				
+				padding: 25px 0 30px 0;
+			    cursor: pointer;
+			}
+			.livebox footer .of
+			{
+				z-index: 1;
+				float: left;
+				width: 50%;
+
+			    color: var(--color-texto-1);
+				background: var(--color-border-1);
+				
+				padding: 25px 0 30px 0;
+			    cursor: pointer;
+			}
+			.livebox footer h2
+			{
+				float: left;
+				width: 100%;
+				text-align: center;
+			    font-size: 1.1rem;
+			    line-height: 1.1rem;
+			    letter-spacing: 1px;
+			    word-spacing: 1px;
+			    font-weight: 400;
+			}
+				.livebox footer h2 i
+				{
+					font-size: 1rem;
+					margin: 0 10px 0 0;
+				}
+
+	.livebox .tipo-mesa
+	{
+		float: left;
+		width: calc(100% - var(--padding-box));
+		padding: 15px 0 0 0;
+		display: grid;
+		grid-template-columns: 1fr 1fr;
+		grid-gap: var(--padding-box-interior);
+	}
+		.livebox .tipo-mesa div
+		{
+			text-align: center;
+			font-size: 1rem;
+			line-height: 1rem;
+			color: var(--color-texto-1);
+			border: solid 1px var(--color-border-1);
+			border-radius: var(--border-radius);
+			padding: 13px 0 17px 0;
+			cursor: pointer;
+		}
+			.livebox .tipo-mesa div i
+			{
+				font-size: 0.9rem;
+				margin: 0 8px 0 0;
+			}
+		.livebox .tipo-mesa .on
+		{
+			color: var(--color-bg-box);
+			background: linear-gradient(to bottom right , var(--color-texto-1-a) , var(--color-texto-1) 95%);
+			text-shadow: 0px 1px 1px var(--color-texto-1-a);
+			box-shadow: inset 0px 0px 10px var(--color-texto-1-a);
+		}
+		.livebox .tipo-mesa .off
+		{
+			cursor: not-allowed;
+			opacity: 0.5;
+		}
+
+	.livebox .candidatos
+	{
+		width: calc(100%);
+		padding: 0 0 20px 0;
+	}
+		.livebox .candidatos-lista-a
+		{
+			color: #0160c5;
+		}
+		.livebox .candidatos-lista-b
+		{
+			color: #ff0010;
+		}
+		.livebox .candidatos-listado
+		{
+			float: left;
+			width: 100%;
+			max-height: 292px;
+			overflow-y: scroll;
+			padding: 9px 0 9px 0;
+		}
+		.livebox .candidatos-listado-titulo
+		{
+			float: left;
+			width: calc(100% - 50px);
+			padding: 0 30px 7px 20px;
+			font-size: 1rem;
+			line-height: 1rem;
+			font-weight: 600;
+			color: var(--color-texto-1);
+		}
+			.livebox .candidatos-listado-titulo i
+			{
+				font-size: 0.9rem;
+				margin: 0 10px 0 10px;
+			}
+			.livebox .candidatos-listado-titulo-pd
+			{
+				padding: 20px 30px 7px 20px;
+			}
+		.livebox .candidato
+		{
+			float: left;
+			width: calc(100% - (var(--padding-box) * 2));
+			padding: 6px var(--padding-box) 6px var(--padding-box);
+			display: grid;
+			grid-template-columns: 1fr 70px 30px 30px 30px;
+			grid-gap: 20px;
+		}
+			.livebox .candidato:hover
+			{
+				background: var(--color-bg-box-a);
+			}
+			.livebox .candidato:nth-child(odd)
+			{
+				
+			}
+			.livebox .candidato:nth-child(even)
+			{
+				
+			}
+			.livebox .candidatos .titulo
+			{
+				padding: 0 var(--padding-box) 10px var(--padding-box);
+			}
+			.livebox .candidato input
+			{
+				margin: 0px !important;
+			}
+			.livebox .candidato i
+			{
+				font-size: 1.8rem;
+				margin: 11px 0 0 0;
+				cursor: pointer;
+			}
+			.livebox .candidato .candidato-titulo
+			{
+				float: left;
+				width: 100%;
+				font-size: 1rem;
+				line-height: 1rem;
+				font-weight: 400;
+				color: var(--color-texto-1);
+			}
+			.livebox .candidato .candidato-nombre
+			{
+				float: left;
+				position: relative;
+				width: 100%;
+			}
+				.livebox .candidato .candidato-nombre:hover .candidato-nombre-guardar
+				{
+					display: block;
+				}
+				.livebox .candidato .candidato-nombres
+				{
+					float: left;
+					width: calc(50% - 72px);
+					padding: 0 20px 4px 20px;
+					margin: 0 0 0 60px !important;
+					border-radius: var(--border-radius) 0 0 var(--border-radius) !important;
+				}
+				.livebox .candidato .candidato-apellidos
+				{
+					float: left;
+					width: calc(50% - 72px);
+					padding: 0 20px 4px 20px;
+					margin: 0 0 0 0 !important;
+					border-radius: 0 var(--border-radius) var(--border-radius) 0 !important;
+				}
+				.livebox .candidato .candidato-nombre-historico
+				{
+					z-index: 1;
+					top: 0px;
+					left: 0px;
+					position: absolute;
+					width: 15px;
+					height: 47px;
+					background: var(--color-border-1);
+					border-radius: var(--border-radius);
+					padding: 0 15px 0 15px;
+					cursor: pointer;
+				}
+					.livebox .candidato .candidato-nombre-historico i
+					{
+						color: var(--color-texto-2);
+						font-size: 1.2rem;
+						margin: 14px 0 0 0;
+					}
+				.livebox .candidato .candidato-nombre-guardar
+				{
+					z-index: 50;
+					display: none;
+					top: 0px;
+					right: -40px;
+					position: absolute;
+					height: 47px;
+					background: var(--color-texto-1);
+					padding: 0 15px 0 15px;
+					border-radius: 0 var(--border-radius) var(--border-radius) 0;
+					cursor: pointer;
+				}
+					.livebox .candidato .candidato-nombre-guardar i
+					{
+						color: var(--color-bg-box);
+						font-size: 1.2rem;
+						margin: 14px 0 0 0;
+					}
+			.livebox .candidato .candidato-guardar
+			{
+				text-align: center;
+				color: var(--color-texto-2);
+			}
+			.livebox .candidato .candidato-sumar
+			{
+				text-align: center;
+				color: var(--color-bg-boton-editar);
+			}
+			.livebox .candidato .candidato-restar
+			{
+				text-align: center;
+				color: var(--color-bg-boton-eliminar);
+			}
+			
+	.livebox-bg
+	{
+		z-index: 800;
+		position: fixed;
+		width: 100%;
+		height: 100%;
+		background: var(--color-bg-body);
+		opacity: 0.85;
+		display: none;
+	}
+
+    .livebox .input-autocomplate:focus
+    {
+        border-radius: var(--border-radius) var(--border-radius) 0 0;
+    }
+    .easy-autocomplete
+    {
+        float: left;
+        width: 100% !important;
+        z-index: 10;
+    }
+        .easy-autocomplete-container
+        {
+            top: 60px;
+            left: 0;
+            position: absolute;
+            width: 100%;
+            z-index: 2;
+            border-radius: 0 0 var(--border-radius) var(--border-radius);
+            box-shadow: 0px 8px 20px -5px var(--color-bg-shadow);
+            overflow: hidden;
+        }
+            .easy-autocomplete-container ul
+            {
+                float: left;
+                width: 100%;
+            }
+                .easy-autocomplete-container li
+                {
+                    float: left;
+                    list-style: none;
+                    width: calc(100% - 2px);
+                    background: var(--color-bg-box);
+                    border-top: solid 1px var(--color-border-1);
+                    border-left: solid 1px var(--color-texto-1);
+                    border-right: solid 1px var(--color-texto-1);
+                    cursor: pointer;
+                }
+					.easy-autocomplete-container li:hover
+					{
+						background: var(--color-bg-box-hover);
+					}
+					.easy-autocomplete-container .box
+					{
+						width: calc(100% - 40px);
+						padding: 11px 20px 14px 20px;
+						color: var(--color-form-input);
+						font-weight: 300;
+						font-size: 0.9rem;
+						letter-spacing: 0.025rem;
+						display: grid;
+						grid-template-columns: 1fr 1fr;
+					}
+						.easy-autocomplete-container .box .child
+						{
+							color: var(--color-form-input);
+							font-weight: 300;
+							font-size: 0.9rem;
+							line-height: 0.9rem;
+						}
+						.easy-autocomplete-container .box .parent
+						{
+							color: var(--color-texto-2);
+							font-weight: 300;
+							font-size: 0.9rem;
+							line-height: 0.9rem;
+						}
+						.easy-autocomplete-container .box b
+						{
+							text-decoration: underline;
+							font-size: 0.9rem;
+							line-height: 0.9rem;
+						}
+                    .easy-autocomplete-container li:last-child
+                    {
+                        border-radius: 0 0 var(--border-radius) var(--border-radius);
+                        border-bottom: solid 1px var(--color-texto-1);
+                    }

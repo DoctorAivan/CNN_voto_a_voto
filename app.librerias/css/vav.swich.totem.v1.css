@@ -1,0 +1,809 @@
+*
+{
+	margin: 0px;
+	padding: 0px;
+	border: 0px;
+}
+
+@font-face
+{
+	font-family: 'panton_thin';
+	src: local('panton_thin'), url(fonts/cnn/panton_thin.otf) format('opentype');
+}
+@font-face
+{
+	font-family: 'panton_extraLight';
+	src: local('panton_extraLight'), url(fonts/cnn/panton_extraLight.otf) format('opentype');
+}
+@font-face
+{
+	font-family: 'panton_light';
+	src: local('panton_light'), url(fonts/cnn/panton_light.otf) format('opentype');
+}
+@font-face
+{
+	font-family: 'panton_regular';
+	src: local('panton_regular'), url(fonts/cnn/panton_regular.otf) format('opentype');
+}
+@font-face
+{
+	font-family: 'panton_semiBold';
+	src: local('panton_semiBold'), url(fonts/cnn/panton_semiBold.otf) format('opentype');
+}
+@font-face
+{
+	font-family: 'panton_bold';
+	src: local('panton_bold'), url(fonts/cnn/panton_bold.otf) format('opentype');
+}
+@font-face
+{
+	font-family: 'panton_extraBold';
+	src: local('panton_extraBold'), url(fonts/cnn/panton_extraBold.otf) format('opentype');
+}
+@font-face
+{
+	font-family: 'panton_black';
+	src: local('panton_black'), url(fonts/cnn/panton_black.otf) format('opentype');
+}
+@font-face
+{
+	font-family: 'panton_heavy';
+	src: local('panton_heavy'), url(fonts/cnn/panton_heavy.otf) format('opentype');
+}
+
+@font-face
+{
+	font-family: "ATC_rg";
+	src: local('ATTAleckCd_Rg'), url("fonts/ATTAleckCd_Rg.ttf") format("truetype");
+}
+@font-face
+{
+	font-family: "ATC_bd";
+	src: local('ATTAleckCd_W_Bd'), url("fonts/ATTAleckCd_W_Bd.ttf") format("truetype");
+}
+
+@font-face
+{
+	font-family: "Flama_Regular";
+	src: local('Flama_Regular'), url("fonts/Flama_Regular.otf") format("truetype");
+}
+@font-face
+{
+	font-family: "Flama_Medium";
+	src: local('Flama_Medium'), url("fonts/Flama_Medium.otf") format("truetype");
+}
+@font-face
+{
+	font-family: "Flama_Semibold";
+	src: local('Flama_Semibold'), url("fonts/Flama_Semibold.otf") format("truetype");
+}
+@font-face
+{
+	font-family: "Flama_Bold";
+	src: local('Flama_Bold'), url("fonts/Flama_Bold.otf") format("truetype");
+}
+
+:root
+{
+	--color-card-a : #ffffff;
+	--color-card-b : #e3e3e3;
+
+	--color-white : #ffffff;
+	--color-black : #250940;
+
+	--colog-gray-a : #444;
+	--colog-gray-b : #111;
+
+	--colog-purple-a : #431b66;
+	--colog-purple-b : #250940;
+
+	--colog-result-a : #522d72;
+	--colog-result-b : #361c4f;
+
+	--color-voted-blue-a : #237ee4;
+	--color-voted-blue-b : #682fae;
+	--color-voted-blue-animation-a : #682fae99;
+	--color-voted-blue-animation-b : #237ee499;
+	--color-voted-blue-animation-c : #237ee400;
+
+	--color-voted-red-a : #f1020b;
+	--color-voted-red-b : #b6185d;
+	--color-voted-red-animation-a : #b6185d99;
+	--color-voted-red-animation-b : #f1020b35;
+	--color-voted-red-animation-c : #f1020b25;
+
+	--candidate-width : 340px;
+	--candidate-height-totem : 56px;
+	--candidate-height-floating : 38px;
+	--candidate-list-limit : 5;
+	--candidate-margin : 0px;
+
+
+	--candidate-voted-size : 2.1rem;
+	--candidate-voted-size-spacing : 0.15rem;
+
+	--candidate-percentage-size : 1.2rem;
+	--candidate-percentage-size-spacing : 0.1rem;
+}
+
+body
+{
+	overflow: hidden;
+	background: transparent;
+	background: #237ee4;
+}
+
+#render
+{
+	position: relative;
+	top: 0px;
+	left: 0px;
+	width: 1920px;
+	height: 1080px;
+/*
+	background: url("http://10.3.75.100/cronometro_debates/libs/bg.png") no-repeat;
+	background: url("http://10.3.84.59/vav_plebiscito/app.imagenes/bg_cnn_1.jpg") no-repeat;
+*/
+	background: url("http://10.3.84.59/vav_plebiscito/app.imagenes/bg_cnn.jpg") no-repeat;
+	overflow: hidden;
+}
+	#no-cursor
+	{
+		z-index: 100;
+		position: absolute;
+		width: 1920px;
+		height: 1080px;
+
+		display: none;
+	}
+	#render-mesa-1
+	{
+		z-index: 10;
+		position: absolute;
+	}
+	#render-mesa-2
+	{
+		z-index: 9;
+		position: absolute;
+	}
+	#render-totales
+	{
+		z-index: 11;
+		position: absolute;
+	}
+
+	#bg-tottem
+	{
+		z-index: 1;
+		position: absolute;
+		bottom: 168px;
+		left: -473px;
+		width: 473px;
+		height: 912px;
+		background: #24083d;
+		opacity: 0.6;
+		transition: height 0.5s ease, left 0.5s ease;
+	}
+
+	.animar_voto
+	{
+		animation: keyframe_voto 1s ease 1 forwards;
+	}
+	.animar_voto_texto
+	{
+		animation: keyframe_voto_texto 1s ease 1 forwards;
+	}
+	.animar_voto_icono
+	{
+		animation: keyframe_voto_icono 1s ease 1 forwards;
+	}
+
+	.letters_in
+	{
+		animation: keyframe_letter_in 1.5s ease-out 1 forwards;
+	}
+	.letters_zoom_in
+	{
+		animation: keyframe_letter_zoom_in 1.5s ease-out 1 forwards;
+	}
+	.arrow_zoom_in
+	{
+		animation: keyframe_arrow_zoom_in 1.5s ease-out 1 forwards;
+	}
+
+	.transition
+	{
+		transition: all 0.75s ease-in-out;
+	}
+	.transition-on
+	{
+		transition: left 0.75s ease, right 0.75s ease, transform 0.75s ease, bottom 0.75s ease;
+	}
+	.transition-of
+	{
+		transition: all 0s ease;
+	}
+
+	.tottem
+	{
+		position: absolute;
+		width: var(--candidate-width);
+	}
+	.floating
+	{
+		position: absolute;
+		width: var(--candidate-width);
+	}
+	.totals
+	{
+		position: absolute;
+		width: var(--candidate-width);
+	}
+
+/*
+	TOTTEM
+	-		-		-		-		-		-		-		-		-		-		-		-		-		-		-		-		-		-
+*/
+	.tottem .box
+	{
+		position: relative;
+		overflow: hidden;
+		width: 100%;
+		background: linear-gradient( 0deg, var(--color-card-a) 30%, var(--color-card-b) 100%);
+	}
+		.tottem .box .border
+		{
+			position: relative;
+			height: 4px;
+			background: linear-gradient( 90deg, var(--color-voted-blue-a) 25%, var(--color-voted-blue-b) 50%, var(--color-voted-red-b) 75%, var(--color-voted-red-a) 100%);
+		}
+
+		.tottem .box .title
+		{
+			z-index: 3;
+			position: relative;
+			display: grid;
+			grid-template-columns: 1fr auto;
+			padding: 11px 18px 11px 17px;
+			text-transform: uppercase;
+			background: linear-gradient( 25deg, var(--colog-purple-b) 0%, var(--colog-purple-a) 100%);
+		}
+			.tottem .box .title img
+			{
+				margin-right: 12px;
+				height: 14px;
+			}
+			.tottem .box .title h2
+			{
+				color: #ffffff;
+				font-family: 'Flama_Semibold';
+				font-size: 1.2rem;
+				line-height: 1.2rem;
+				letter-spacing: 0.05rem;
+			}
+			.tottem .box .title h3
+			{
+				color: #ffffff;
+				font-family: 'Flama_Regular';
+				font-size: 1.2rem;
+				line-height: 1.2rem;
+				letter-spacing: 0.05rem;
+				word-spacing: 4px;
+				opacity: 0.8;
+			}
+			
+		.tottem .box .header
+		{
+			z-index: 3;
+			position: relative;
+			padding: 11px 0 11px 16px;
+			text-transform: uppercase;
+			background: linear-gradient( 0deg, var(--color-card-a) 0%, var(--color-card-b) 100%);
+			border-bottom: solid 1px #ddd;
+		}
+			.tottem .box .header h2
+			{
+				color: var(--color-black);
+				font-family: 'panton_extraBold';
+				font-size: 1.5rem;
+				line-height: 1.5rem;
+				letter-spacing: 0.03rem;
+				margin: 0 0 2px 0;
+			}
+				.tottem .box .header h2 span
+				{
+					font-family: 'panton_semiBold';
+				}
+				.tottem .box .header h2 .country
+				{
+					font-family: 'panton_semiBold';
+					margin-left: 10px;
+				}
+			.tottem .box .header h3
+			{
+				position: relative;
+				width: 100%;
+				color: var(--color-black);
+				font-family: 'Flama_Regular';
+				font-size: 1.1rem;
+				line-height: 1.1rem;
+			}
+				.tottem .box .header h3 span
+				{
+					font-family: 'Flama_Medium';
+					margin-left: 9px;
+					padding: 0 0 0 7px;
+				}
+				.tottem .box .header h3 span::before
+				{
+					content: "";
+					position: absolute;
+					top: 2px;
+					margin-left: -11px;
+					width: 1px;
+					height: 13px;
+					background: #555;
+				}
+
+		.tottem .box .columns
+		{
+			z-index: 1;
+			position: relative;
+			display: grid;
+			grid-template-columns: 1fr;
+			height: calc( var(--candidate-height-totem) * var(--candidate-list-limit));
+			overflow: hidden;
+			background: #d5d5d5;
+		}
+			.tottem .box .columns .electo
+			{
+				background: linear-gradient( 160deg, #fff 0%, #ffdfe0 100%);
+				border-bottom: solid 1px #f9cacb;
+			}
+			.tottem .box .columns .no-electo
+			{
+				background: linear-gradient( 160deg, #fff 0%, #eee 100%);
+				border-bottom: solid 1px #ddd;
+			}
+			.tottem .box .columns .candidato
+			{
+				position: absolute;
+				display: grid;
+				grid-template-columns: 1fr 100px;
+				width: calc( var(--candidate-width) - 16px);
+				padding: 0 0 0 16px;
+				height: var(--candidate-height-totem);
+				transition: all 0.75s ease-in-out;
+			}
+				.tottem .box .columns .candidato .candidato-detalles
+				{
+					z-index: 5;
+					position: relative;
+					width: 100%;
+				}
+					.tottem .box .columns .candidato .candidato-detalles h2
+					{
+						width: 100%;
+						color: var(--colog-purple-b);
+						font-family: 'panton_bold';
+						font-size: 1rem;
+						word-spacing: 0.075rem;
+						margin: 9px 0 0 0;
+						display: -webkit-box;
+						-webkit-box-orient: vertical;
+						-webkit-line-clamp: 1;
+						overflow: hidden;
+					}
+						.tottem .box .columns .candidato .candidato-detalles h2 span
+						{
+							font-family: 'panton_regular';
+						}
+					.tottem .box .columns .candidato .candidato-detalles h3
+					{
+						width: 100%;
+						height: 20px;
+						color: #25094099;
+						font-family: 'panton_semiBold';
+						font-size: 0.9rem;
+						word-spacing: 0.075rem;
+						display: -webkit-box;
+						-webkit-box-orient: vertical;
+						-webkit-line-clamp: 1;
+						overflow: hidden;
+					}
+						.tottem .box .columns .candidato .candidato-detalles h3 span
+						{
+							font-family: 'panton_light';
+							margin: 0 2px 0 0;
+						}
+				.tottem .box .columns .candidato .candidato-votos
+				{
+					z-index: 5;
+					font-family: 'panton_extraBold';
+					color: var(--color-voted-red-a);
+					text-align: right;
+					font-size: 1.7rem;
+					line-height: 1.7rem;
+					padding: 15px 16px 0 0;
+				}
+					.tottem .box .columns .candidato .candidato-votos img
+					{
+						width: 14px;
+						margin: 0 0 0 8px;
+						opacity: 0.7;
+					}
+				.tottem .box .columns .candidato .candidato-voto
+				{
+					z-index: 1;
+					top: 0px;
+					position: absolute;
+					width: 100%;
+					height: 100%;
+					opacity: 0;
+					background: linear-gradient(90deg, var(--color-voted-red-animation-c) 0%, var(--color-voted-red-animation-b) 50%, var(--color-voted-red-animation-a) 100%);
+				}
+
+/*
+	POSICIONES DE LOS BLOQUES
+	-		-		-		-		-		-		-		-		-		-		-		-		-		-		-		-		-		-
+*/
+	.tottem .box .columns .order-1
+	{
+		z-index: 6;
+		top: calc( var(--candidate-height-totem) * 0 );
+		animation: orden-1-kf 0s ease-out 1 forwards;
+	}
+	.tottem .box .columns .order-2
+	{
+		z-index: 5;
+		top: calc( ( var(--candidate-height-totem) + var(--candidate-margin) ) * 1 );
+		animation: orden-2-kf 0s ease-out 1 forwards;
+	}
+	.tottem .box .columns .order-3
+	{
+		z-index: 4;
+		top: calc( ( var(--candidate-height-totem) + var(--candidate-margin) ) * 2 );
+		animation: orden-3-kf 0s ease-out 1 forwards;
+	}
+	.tottem .box .columns .order-4
+	{
+		z-index: 3;
+		top: calc( ( var(--candidate-height-totem) + var(--candidate-margin) ) * 3 );
+		animation: orden-4-kf 0s ease-out 1 forwards;
+	}
+	.tottem .box .columns .order-5
+	{
+		z-index: 2;
+		top: calc( ( var(--candidate-height-totem) + var(--candidate-margin) ) * 4 );
+		animation: orden-5-kf 0s ease-out 1 forwards;
+	}
+	.tottem .box .columns .order-6
+	{
+		z-index: 1;
+		top: calc( ( var(--candidate-height-totem) + var(--candidate-margin) ) * 5 );
+		animation: orden-6-kf 0s ease-out 1 forwards;
+	}
+
+/*
+	FLOATING
+	-		-		-		-		-		-		-		-		-		-		-		-		-		-		-		-		-		-
+*/
+	.floating .box
+	{
+		position: relative;
+		width: 100%;
+		background: linear-gradient( 0deg, var(--color-card-a) 30%, var(--color-card-b) 100%);
+	}
+		.floating .box .border
+		{
+			position: relative;
+			height: 4px;
+			background: linear-gradient( 90deg, var(--color-voted-blue-a) 25%, var(--color-voted-blue-b) 50%, var(--color-voted-red-b) 75%, var(--color-voted-red-a) 100%);
+		}
+		
+		.floating .box .title
+		{
+			z-index: 3;
+			position: relative;
+			display: grid;
+			grid-template-columns: 1fr auto;
+			padding: 11px 18px 11px 17px;
+			text-transform: uppercase;
+			background: linear-gradient( 25deg, var(--colog-purple-b) 0%, var(--colog-purple-a) 100%);
+		}
+			.floating .box .title img
+			{
+				margin-right: 12px;
+				height: 14px;
+			}
+			.floating .box .title h2
+			{
+				color: #ffffff;
+				font-family: 'Flama_Semibold';
+				font-size: 1.2rem;
+				line-height: 1.2rem;
+				letter-spacing: 0.05rem;
+			}
+			.floating .box .title h3
+			{
+				color: #ffffff;
+				font-family: 'Flama_Medium';
+				font-size: 1.2rem;
+				line-height: 1.2rem;
+				letter-spacing: 0.05rem;
+				word-spacing: 4px;
+				opacity: 0.8;
+			}
+			
+		.floating .box .header
+		{
+			z-index: 3;
+			position: relative;
+			padding: 11px 0 11px 16px;
+			text-transform: uppercase;
+			background: linear-gradient( 0deg, var(--color-card-a) 0%, var(--color-card-b) 100%);
+			border-bottom: solid 1px #ddd;
+		}
+			.floating .box .header h2
+			{
+				color: var(--color-black);
+				font-family: 'panton_extraBold';
+				font-size: 1.5rem;
+				line-height: 1.5rem;
+				letter-spacing: 0.03rem;
+				margin: 0 0 2px 0;
+			}
+				.floating .box .header h2 span
+				{
+					font-family: 'panton_semiBold';
+				}
+				.floating .box .header h2 .country
+				{
+					font-family: 'panton_semiBold';
+					margin-left: 10px;
+				}
+			.floating .box .header h3
+			{
+				position: relative;
+				width: 100%;
+				color: var(--color-black);
+				font-family: 'Flama_Regular';
+				font-size: 1.1rem;
+				line-height: 1.1rem;
+			}
+				.floating .box .header h3 span
+				{
+					font-family: 'Flama_Medium';
+					margin-left: 9px;
+					padding: 0 0 0 7px;
+				}
+				.floating .box .header h3 span::before
+				{
+					content: "";
+					position: absolute;
+					top: 2px;
+					margin-left: -11px;
+					width: 1px;
+					height: 13px;
+					background: #555;
+				}
+
+		.floating .box .columns
+		{
+			z-index: 1;
+			position: relative;
+			display: grid;
+			grid-template-columns: 1fr;
+			width: 100%;
+			height: calc( var(--candidate-height-floating) * var(--candidate-list-limit));
+			overflow: hidden;
+			background: #d5d5d5;
+		}
+			.floating .box .columns .electo
+			{
+				background: linear-gradient( 160deg, #fff 0%, #ffdfe0 100%);
+				border-bottom: solid 1px #f9cacb;
+			}
+			.floating .box .columns .no-electo
+			{
+				background: linear-gradient( 160deg, #fff 0%, #eee 100%);
+				border-bottom: solid 1px #ddd;
+			}
+			.floating .box .columns .candidato
+			{
+				position: absolute;
+				display: grid;
+				grid-template-columns: 1fr 75px 70px;
+				width: 100%;
+				height: var(--candidate-height-floating);
+				transition: all 0.75s ease-in-out;
+			}
+				.floating .box .columns .candidato .candidato-nombre
+				{
+					z-index: 5;
+					position: relative;
+					padding: 0 0 0 16px;
+				}
+					.floating .box .columns .candidato .candidato-nombre .totem
+					{
+						display: none;
+					}
+					.floating .box .columns .candidato .candidato-nombre .floating
+					{
+						display: block;
+					}
+
+					.floating .box .columns .candidato .candidato-nombre h2
+					{
+						display: none;
+					}
+					.floating .box .columns .candidato .candidato-nombre h3
+					{
+						color: var(--color-black);
+						font-family: 'panton_semiBold';
+						font-size: 1.1rem;
+						line-height: 1.1rem;
+						padding: 10px 0 0 0;
+					}
+						.floating .box .columns .candidato .candidato-nombre h3 span
+						{
+							font-family: 'panton_light';
+							margin: 0 3px 0 0;
+						}
+				.floating .box .columns .candidato .candidato-partido
+				{
+					z-index: 5;
+					color: var(--color-voted-red-b);
+					font-family: 'Flama_Regular';
+					font-size: 1.1rem;
+					line-height: 1.1rem;
+					text-align: left;
+					padding: 10px 0 0 0;
+				}
+				.floating .box .columns .candidato .candidato-votos
+				{
+					z-index: 5;
+					font-family: 'panton_extraBold';
+					color: var(--color-voted-red-a);
+					text-align: right;
+					font-size: 1.5rem;
+					line-height: 1.5rem;
+					letter-spacing: 0.15rem;
+					padding: 7px 15px 0 0;
+				}
+				.floating .box .columns .candidato .candidato-voto
+				{
+					z-index: 1;
+					top: 0px;
+					position: absolute;
+					width: 100%;
+					height: 100%;
+					opacity: 0;
+					background: linear-gradient(90deg, var(--color-voted-red-animation-c) 0%, var(--color-voted-red-animation-b) 50%, var(--color-voted-red-animation-a) 100%);
+				}
+
+	.floating .pos-1::after {
+		content: " ";
+		z-index: -1;
+		position: absolute;
+		top: 0px;
+		left: -340px;
+		display: block;
+		background: var(--colog-purple-b);
+		height: 367px;
+		width: calc(var(--candidate-width) * 2);
+		opacity: 0.5;
+	}
+
+	.floating .pos-2::after {
+		content: " ";
+		z-index: -1;
+		position: absolute;
+		top: 0px;
+		left: 0;
+		display: block;
+		background: var(--colog-purple-b);
+		height: 367px;
+		width: calc(var(--candidate-width) * 2);
+		opacity: 0.5;
+	}
+
+/*
+	POSICIONES DE LOS BLOQUES
+	-		-		-		-		-		-		-		-		-		-		-		-		-		-		-		-		-		-
+*/
+	.floating .box .columns .order-1
+	{
+		z-index: 7;
+		top: calc( var(--candidate-height-floating) * 0 );
+		animation: orden-1-kf 0s ease-out 1 forwards;
+	}
+	.floating .box .columns .order-2
+	{
+		z-index: 6;
+		top: calc( ( var(--candidate-height-floating) + var(--candidate-margin) ) * 1 );
+		animation: orden-2-kf 0s ease-out 1 forwards;
+	}
+	.floating .box .columns .order-3
+	{
+		z-index: 5;
+		top: calc( ( var(--candidate-height-floating) + var(--candidate-margin) ) * 2 );
+		animation: orden-3-kf 0s ease-out 1 forwards;
+	}
+	.floating .box .columns .order-4
+	{
+		z-index: 4;
+		top: calc( ( var(--candidate-height-floating) + var(--candidate-margin) ) * 3 );
+		animation: orden-4-kf 0s ease-out 1 forwards;
+	}
+	.floating .box .columns .order-5
+	{
+		z-index: 3;
+		top: calc( ( var(--candidate-height-floating) + var(--candidate-margin) ) * 4 );
+		animation: orden-5-kf 0s ease-out 1 forwards;
+	}
+	.floating .box .columns .order-6
+	{
+		z-index: 2;
+		top: calc( ( var(--candidate-height-floating) + var(--candidate-margin) ) * 5 );
+		animation: orden-6-kf 0s ease-out 1 forwards;
+	}
+	.floating .box .columns .order-7
+	{
+		z-index: 1;
+		top: calc( ( var(--candidate-height-floating) + var(--candidate-margin) ) * 6 );
+		animation: orden-7-kf 0s ease-out 1 forwards;
+	}
+
+	@keyframes orden-1-kf { 1% { z-index: 7 } }
+	@keyframes orden-2-kf { 1% { z-index: 6 } }
+	@keyframes orden-3-kf { 1% { z-index: 5 } }
+	@keyframes orden-4-kf { 1% { z-index: 4 } }
+	@keyframes orden-5-kf { 1% { z-index: 3 } }
+	@keyframes orden-6-kf { 1% { z-index: 2 } }
+	@keyframes orden-7-kf { 1% { z-index: 1 } }
+
+/*
+	ANIMACIONES
+	-		-		-		-		-		-		-		-		-		-		-		-		-		-		-		-		-		-
+*/
+	@keyframes keyframe_letter_in
+	{
+		0% { opacity: 0 }
+		25% { opacity: 0 }
+		100% { opacity: 1 }
+	}
+	@keyframes keyframe_letter_zoom_in
+	{
+		0% { opacity: 0; transform: scale(1.2) }
+		50% { opacity: 0; transform: scale(1.2) }
+		100% { opacity: 1; transform: scale(1) }
+	}
+	@keyframes keyframe_arrow_zoom_in
+	{
+		0% { opacity: 0; filter: brightness(2); }
+		50% { opacity: 0; filter: brightness(2); }
+		100% { opacity: 1; filter: brightness(1); }
+	}
+
+	@keyframes keyframe_voto
+	{
+		0% { opacity: 0 }
+		45% { opacity: 1 }
+		55% { opacity: 1 }
+		100% { opacity: 0 }
+	}
+	@keyframes keyframe_voto_texto
+	{
+		0% { color: #ff0000; }
+		45% { color: #ffffff; }
+		55% { color: #ffffff; }
+		100% { color: #ff0000; }
+	}
+	@keyframes keyframe_voto_icono
+	{
+		0% { filter: invert(0) }
+		45% { filter: invert(1) }
+		55% { filter: invert(1) }
+		100% { filter: invert(0) }
+	}

@@ -1,0 +1,44 @@
+
+    .monitor
+    {
+        display: grid;
+        grid-template-columns: 230px 35px 1fr  1fr;
+        padding: 12px 20px 15px 20px;
+        border-bottom: solid 1px var(--color-border-2);
+    }
+        .monitor:last-child
+        {
+            border:none;
+        }
+        .monitor b
+        {
+            font-weight: 400;
+        }
+        .monitor .hora
+        {
+            color: var(--color-texto-2);
+        }
+        .monitor .hora i
+        {
+            margin: 0 13px 0 0;
+        }
+
+        .nuevo-dato
+        {
+            animation: animacionNuevoDato 1s linear 3;
+        }
+
+        @keyframes animacionNuevoDato
+        {
+            0% {
+                opacity: 1;
+            }
+            50% {
+                opacity: 1;
+                background: var(--color-border-1);
+            }
+            100% {
+                opacity: 1;
+            }
+        }
+        

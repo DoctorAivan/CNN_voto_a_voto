@@ -1,0 +1,496 @@
+
+	.swich
+	{
+		top: 212px;
+		position: fixed;
+		width: calc(100% - 120px);
+		height: calc(100% - 242px);
+	}
+		.swich .sortable-placeholder
+		{
+			float: left;
+			position: relative;
+			width: 100%;
+			height: 100%;
+			background: -webkit-linear-gradient(to bottom , var(--color-bg-box) , var(--color-border-1) 100%);
+			background: -moz-linear-gradient(to bottom , var(--color-bg-box) , var(--color-border-1) 100%);
+			background: -ms-linear-gradient(to bottom , var(--color-bg-box) , var(--color-border-1) 100%);
+			background: linear-gradient(to bottom , var(--color-bg-box) , var(--color-border-1) 100%);
+			border-radius: var(--border-radius);
+			box-shadow: inset 0px 0px 20px var(--color-bg-box);
+			animation: animacionActivo 1s linear infinite;
+		}
+		.swich .sortable-dragging
+		{
+			opacity: 0.3;
+			cursor: move;
+		}
+		
+		.swich-l
+		{
+			top: 0px;
+			left: 0px;
+			position: absolute;
+			width: calc(100% - 701px);
+			padding: 1px 30px 0 1px;
+			height: calc(100% - 1px );
+			overflow-y: scroll;
+			overflow-x: hidden;
+		}
+			.swich-l::-webkit-scrollbar
+			{
+				position: absolute;
+			    width: 1px;
+			    height: 1px;
+			}
+				.swich-l::-webkit-scrollbar-track
+				{
+					background: var(--color-bg-box);
+				}
+				.swich-l::-webkit-scrollbar-thumb
+				{
+				    background: var(--color-border-1);
+					cursor: pointer;
+				}
+			.swich-l-scroll
+			{
+				float: left;
+				width: 100%;
+			}
+		.swich-r
+		{
+			top: 0px;
+			right: 0px;
+			position: absolute;
+			width: 640px;
+			min-height: 200px;
+			padding: 1px 0 0 0;
+		}
+			.swich-r-cnt
+			{
+				float: left;
+				width: 100%;
+			}
+			.swich-r-box
+			{
+				float: left;
+				position: relative;
+				width: calc(100% - 42px);
+				padding: 20px 20px 20px 20px;
+				border: solid 1px var(--color-border-2);
+				border-radius: 20px;
+			}
+				.swich-r-box-opciones
+				{
+					z-index: 10;
+					top: -16px;
+					right: 20px;
+					position: absolute;
+					height: 36px;
+					color: var(--color-texto-1);
+					background: -webkit-linear-gradient(to bottom , var(--color-bg-box-a) , var(--color-bg-box) 100%);
+					background: -moz-linear-gradient(to bottom , var(--color-bg-box-a) , var(--color-bg-box) 100%);
+					background: -ms-linear-gradient(to bottom , var(--color-bg-box-a) , var(--color-bg-box) 100%);
+					background: linear-gradient(to bottom , var(--color-bg-box-a) , var(--color-bg-box) 100%);
+					border-radius: 10px 10px 0px 0px;
+					cursor: pointer;
+				}
+					.swich-r-box-opciones:hover
+					{
+						color: var(--color-bg-boton-eliminar);
+					}
+					.swich-r-box-opciones h2
+					{
+						float: left;
+						font-size: 1rem;
+						line-height: 1rem;
+						font-weight: 400;
+						letter-spacing: 0.05rem;
+						word-spacing: 0.25rem;
+						padding: 10px 10px 0 17px;
+					}
+					.swich-r-box-opciones h3
+					{
+						float: left;
+						padding: 10px 17px 0 0;
+					}
+						.swich-r-box-opciones h3 i
+						{
+							font-size: 1.1rem;
+						}
+			.swich-espacio
+			{
+				float: left;
+				width: 100%;
+				min-height: 213px;
+				background: var(--color-bg-box);
+				border-radius: 10px 0px 10px 10px;
+			}
+				.swich-espacio article
+				{
+					border-radius: 10px 0px 10px 10px !important;
+				}
+				.swich-espacio .mesa-swich
+				{
+					display: none !important;
+				}
+					.swich-espacio .mesa-swich:first-child
+					{
+						display: block !important;
+					}
+					
+		.swich-nav
+		{
+			grid-column: span 2;
+			background: var(--color-bg-box);
+			padding: 15px 20px 20px 20px;
+		}
+			.swich-nav h2
+			{
+			    font-size: 0.9rem;
+			    line-height: 1.2rem;
+			    letter-spacing: 0.03rem;
+			    color: var(--color-texto-1);
+			}
+			.swich-mesas
+			{
+				float: left;
+			}
+				.swich-mesas div
+				{
+					float: left;
+					width: auto;
+					height: 28px;
+					font-size: 1rem;
+					line-height: 1rem;
+					font-weight: 400;
+					word-spacing: 6px;
+					padding: 11px 14px 0 14px;
+					margin: 8px 15px 0 0;
+					-webkit-transition: all .25s ease-out;
+					-moz-transition: all .25s ease-out;
+					-o-transition: all .25s ease-out;
+					transition: all .25s ease-out;
+				}
+					.swich-mesas div i
+					{
+						font-size: 0.9rem;
+						line-height: 0.9rem;
+					}
+					.swich-mesas .on
+					{
+						color: var(--color-bg-box);
+						background: var(--color-bg-boton-nuevo);
+						border: solid 1px var(--color-bg-boton-nuevo);
+						cursor: default;
+					}
+					.swich-mesas .of
+					{
+						color: var(--color-bg-boton-nuevo);
+						border: solid 1px var(--color-bg-boton-nuevo);
+						cursor: pointer;
+					}
+					.swich-mesas .disabled
+					{
+						border: solid 1px var(--color-border-2);
+						color: var(--color-texto-2);
+						background: var(--color-border-2);
+						cursor: not-allowed;
+					}
+			.swich-controles
+			{
+				float: left;
+			}
+			.swich-consolidados
+			{
+				float: left;
+				width: 100%;
+				padding: 0 0 0 0;
+				display: grid;
+				grid-template-columns: 1fr 1fr;
+				grid-gap: 1rem;
+			}
+				.swich-consolidados-titulo
+				{
+					float: left;
+					width: 100%;
+					font-size: 0.9rem;
+					line-height: 1.2rem;
+					letter-spacing: 0.03rem;
+					color: var(--color-texto-1);
+					padding: 0 0 10px 0;
+				}
+				.swich-consolidados-items
+				{
+					float: left;
+					background: var(--color-border-2);
+					border-radius: var(--border-radius);
+					overflow: hidden;
+				}
+					.swich-consolidados-items .item
+					{
+						float: left;
+						font-size: 1rem;
+						line-height: 1rem;
+						font-weight: 400;
+						padding: 12px 20px 13px 20px;
+					}
+						.swich-consolidados-items .on
+						{
+							color: var(--color-bg-box);
+							background: var(--color-bg-boton-nuevo);
+							cursor: default;
+						}
+						.swich-consolidados-items .of
+						{
+							color: var(--color-texto-2);
+							background: var(--color-border-2);
+							cursor: pointer;
+						}
+
+			.swich-separador
+			{
+				float: left;
+				width: 1px;
+				height: 41px;
+				background: var(--color-border-2);
+				margin: 27px 25px 0 10px;
+			}
+				.swich-controles div
+				{
+					float: left;
+					height: 29px;
+					font-size: 1rem;
+					line-height: 1rem;
+					font-weight: 400;
+					word-spacing: 6px;
+					padding: 12px 20px 0 20px;
+					margin: 8px 0 0 0;
+				}
+				.swich-controles .preview
+				{
+					height: 28px;
+					color: var(--color-bg-boton-nuevo);
+					border: solid 1px var(--color-bg-boton-nuevo);
+					cursor: pointer;
+					margin: 8px 15px 0 0;
+					padding: 11px 20px 0 20px;
+					-webkit-transition: all .25s ease-out;
+					-moz-transition: all .25s ease-out;
+					-o-transition: all .25s ease-out;
+					transition: all .25s ease-out;
+				}
+					.swich-controles .preview:hover
+					{
+						color: var(--color-bg-box);
+						background: var(--color-bg-boton-nuevo);
+					}
+				.swich-controles .on
+				{
+					display: none;
+					color: var(--color-bg-box);
+					background: var(--color-bg-boton-editar);
+					animation:animacionActivo 1s linear infinite;
+					cursor: pointer;
+				}
+				.swich-controles .of
+				{
+					color: var(--color-texto-2);
+					background: var(--color-border-2);
+					cursor: not-allowed;
+				}
+		
+	.mesa-swich
+	{
+		float: left;
+		position: relative;
+		cursor: default;
+	}
+		.mesa-swich .cambios
+		{
+			position: absolute;
+			width: 100%;
+			height: 100%;
+			background: transparent;
+			z-index: 5;
+			box-shadow: 0px 0px 0px 1px #ffd900;
+			display: none;
+		}
+		.mesa-swich .destacado
+		{
+			position: absolute;
+			top: 17px;
+			right: 20px;
+		}
+			.mesa-swich .destacado i
+			{
+				color: #ffd900;
+				font-size: 1.4rem;
+				margin: 0 0 0 12px;
+				animation: kf_opacity 1s ease infinite;
+			}
+		.mesa-swich header
+		{
+			float: left;
+			width: calc(100% - var(--padding-box-interior) * 2);
+			padding: 18px var(--padding-box-interior) 0 var(--padding-box-interior);
+		}
+			.mesa-swich header .tipo
+			{
+				float: left;
+				width: 100%;
+				color: var(--color-texto-1);
+				font-size: 1rem;
+				line-height: 1rem;
+				font-weight: 400;
+				padding: 13px 0 0 0;
+			}
+				.mesa-swich header .tipo i
+				{
+					font-size: 0.9rem;
+					margin: 0 6px 0 0;
+				}
+			.mesa-swich header .zona
+			{
+				float: left;
+				width: 100%;
+				color: var(--color-texto-1-a);
+				font-size: 1rem;
+				line-height: 1rem;
+				font-weight: 300;
+				padding: 7px 0 0 0;
+			}
+			.mesa-swich header h2
+			{
+				float: left;
+				font-size: 1.55rem;
+				color: var(--color-texto-1);
+				font-weight: 500;
+			}
+				.mesa-swich header h2 i
+				{
+					font-size: 1.4rem;
+					margin: 0 6px 0 0;
+				}
+			.mesa-swich header h3
+			{
+				float: left;
+				width: 100%;
+				color: var(--color-texto-1);
+				font-size: 1rem;
+				line-height: 1rem;
+				font-weight: 500;
+				padding: 12px 0 0 0;
+			}
+			.mesa-swich header h4
+			{
+				float: left;
+				width: 100%;
+				color: var(--color-texto-1);
+				font-size: 1.2rem;
+				line-height: 1.2rem;
+				font-weight: 300;
+				padding: 6px 0 0 0;
+			}
+				.mesa-swich header h4 i
+				{
+					font-size: 0.9rem;
+					line-height: 0.9rem;
+					margin: 0 4px 0 0;
+				}
+			.mesa-swich header h5
+			{
+				float: left;
+				width: 100%;
+				color: var(--color-texto-1);
+				font-weight: 300;
+				font-size: 0.9rem;
+				line-height: 0.9rem;
+				padding: 13px 0 0 0;
+			}
+				.mesa-swich header h5 i
+				{
+					width: 15px;
+					font-size: 0.8rem;
+					line-height: 0.8rem;
+					margin: 0 3px 0 0;
+				}
+			.mesa-swich header h6
+			{
+				float: left;
+				width: 100%;
+				color: var(--color-texto-2);
+				font-weight: 300;
+				font-size: 0.9rem;
+				line-height: 0.9rem;
+				padding: 7px 0 17px 0;
+			}
+				.mesa-swich header h6 time
+				{
+					font-size: 0.9rem;
+					line-height: 0.9rem;
+				}
+				.mesa-swich header h6 div
+				{
+					float: left;
+				}
+		.mesa-swich footer
+		{
+			float: left;
+			width: calc(100%);
+			background: var(--color-bg-box-a);
+			background: -webkit-linear-gradient(to bottom , var(--color-bg-box-a) , var(--color-bg-box) 95%);
+			background: -moz-linear-gradient(to bottom , var(--color-bg-box-a) , var(--color-bg-box) 95%);
+			background: -ms-linear-gradient(to bottom , var(--color-bg-box-a) , var(--color-bg-box) 95%);
+			background: linear-gradient(to bottom , var(--color-bg-box-a) , var(--color-bg-box) 95%);
+			border-top: solid 1px var(--color-border-1);
+		}
+			.mesa-swich footer
+			{
+				border-radius: 0px 0px 20px 20px;
+			}
+			.mesa-swich footer article
+			{
+				float: left;
+				width: 50%;
+				text-align: center;
+				padding: 14px 0 15px 0;
+			}
+				.mesa-swich footer article:first-child
+				{
+					width: calc(50% - 2px);
+					border-right: solid 1px var(--color-border-1);
+				}
+				.mesa-swich footer article h2
+				{
+					float: left;
+					width: 100%;
+					color: var(--color-texto-1);
+					font-size: 0.8rem;
+					line-height: 0.8rem;
+					font-weight: 300;
+					margin: 0 0 7px 0;
+				}
+					.mesa-swich footer article h2 i
+					{
+						width: 15px;
+						font-size: 0.7rem;
+						line-height: 0.7rem;
+						margin: 0 3px 0 0;
+					}
+				.mesa-swich footer article h3
+				{
+					float: left;
+					width: 100%;
+					color: var(--color-texto-1);
+					font-size: 1.2rem;
+					line-height: 1.2rem;
+					font-weight: 400;
+				}
+
+	@keyframes kf_opacity
+	{
+		0% { opacity: 1 }
+		50% { opacity: 0.7 }
+		100% { opacity: 1 }
+	}

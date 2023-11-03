@@ -1,0 +1,537 @@
+*
+{
+	margin: 0px;
+	padding: 0px;
+	border: 0px;
+}
+@font-face
+{
+	font-family: 'AT_bd';
+	src: local('ATTAleckSans_W_Bd'), url(fonts/ATTAleckSans_W_Bd.woff2) format('woff2');
+}
+@font-face
+{
+	font-family: 'AT_bk';
+	src: local('ATTAleckSans_W_Blk'), url(fonts/ATTAleckSans_W_Blk.woff2) format('woff2');
+}
+@font-face
+{
+	font-family: 'AT_it';
+	src: local('ATTAleckSans_W_It'), url(fonts/ATTAleckSans_W_It.woff2) format('woff2');
+}
+@font-face
+{
+	font-family: 'AT_md';
+	src: local('ATTAleckSans_W_Md'), url(fonts/ATTAleckSans_W_Md.woff2) format('woff2');
+}
+@font-face
+{
+	font-family: 'AT_rg';
+	src: local('ATTAleckSans_W_Rg'), url(fonts/ATTAleckSans_W_Rg.woff2) format('woff2');
+}
+@font-face
+{
+	font-family: 'AT_th';
+	src: local('ATTAleckSans_W_Th'), url(fonts/ATTAleckSans_W_Th.woff2) format('woff2');
+}
+@font-face
+{
+	font-family: "ATC_th";
+	src: local('ATTAleckCd_W_Lt'), url("fonts/ATTAleckCd_W_Lt.ttf") format("truetype");
+}
+@font-face
+{
+	font-family: "ATC_rg";
+	src: local('ATTAleckCd_Rg'), url("fonts/ATTAleckCd_Rg.ttf") format("truetype");
+}
+@font-face
+{
+	font-family: "ATC_md";
+	src: local('ATTAleckCd_W_Md'), url("fonts/ATTAleckCd_W_Md.ttf") format("truetype");
+}
+@font-face
+{
+	font-family: "ATC_bd";
+	src: local('ATTAleckCd_W_Bd'), url("fonts/ATTAleckCd_W_Bd.ttf") format("truetype");
+}
+@font-face
+{
+	font-family: "ATC_bk";
+	src: local('ATTAleckCd_W_Blk'), url("fonts/ATTAleckCd_W_Blk.ttf") format("truetype");
+}
+@font-face
+{
+	font-family: 'Flama';
+	src: url('fonts/Flama_Bold.otf') format("opentype");
+}
+
+@font-face
+{
+	font-family: "Santral_semibold";
+	src: local('Santral-SemiBold'), url("fonts/Santral-SemiBold.ttf") format("truetype");
+}
+
+@font-face
+{
+	font-family: "Sentral_bold";
+	src: local('Santral-Bold'), url("fonts/Santral-Bold.ttf") format("truetype");
+}
+
+@font-face
+{
+	font-family: "Santral_estrabold";
+	src: local('Santral-ExtraBold'), url("fonts/Santral-ExtraBold.ttf") format("truetype");
+}
+
+:root
+{
+	--tottem-candidate-card-width : 340px;
+	--tottem-candidate-card-margin : 15px;
+
+	--color-card : #ececec;	
+	--color-card-photo : #ffffff;
+	--color-card-photo-2 : #ececec;
+
+	--color-white : #ffffff;
+	--color-black : #000000;
+
+	--color-total-header-a : #ff2e79;
+	--color-total-header-b : #d61158;
+
+	--color-voted-blue-a : #07b1fc;
+	--color-voted-blue-b : #0286db;
+	--color-voted-blue-animation-a : #07b1fc95;
+	--color-voted-blue-animation-b : #0286db;
+
+	--color-voted-red-a : #ff2e79;
+	--color-voted-red-b : #d61158;
+	--color-voted-red-animation-a : #ff2e7995;
+	--color-voted-red-animation-b : #d61158;
+
+	--candidate-voted-size : 3rem;
+	--candidate-voted-size-spacing : -0.05rem;
+
+	--candidate-voted-size-totals : 2.35rem;
+
+	--candidate-border-size :2px;
+	--candidate-box-shadow-color :#b6b9ca;
+}
+
+body
+{
+	overflow: hidden;
+	background: transparent;
+}
+
+#render
+{
+	position: relative;
+	top: 0px;
+	left: 0px;
+	width: 1920px;
+	height: 922px;
+	height: 1080px;
+	background: url("http://10.3.75.100/cronometro_debates/libs/bg.png") no-repeat;
+	overflow: hidden;
+}
+	#render-mesa-1
+	{
+		z-index: 10;
+		position: absolute;
+	}
+	#render-mesa-2
+	{
+		z-index: 9;
+		position: absolute;
+	}
+	#render-totales
+	{
+		z-index: 11;
+		position: absolute;
+	}
+
+	.animar_voto
+	{
+		animation: keyframe_voto 1s ease 1 forwards;
+	}
+	.animar_voto_texto
+	{
+		animation: keyframe_voto_texto 1s ease 1 forwards;
+	}
+	.animar_voto_icono
+	{
+		animation: keyframe_voto_icono 1s ease 1 forwards;
+	}
+
+	.transition
+	{
+		transition: all 0.75s ease-in-out;
+	}
+	.transition-on
+	{
+		transition: left 0.75s ease, right 0.75s ease, transform 0.75s ease, bottom 0.75s ease;
+	}
+	.transition-of
+	{
+		transition: all 0s ease;
+	}
+
+	.tottem
+	{
+		position: absolute;
+		width: var(--tottem-candidate-card-width);
+		transform-style: preserve-3d;
+	}
+	.floating
+	{
+		position: absolute;
+		width: var(--tottem-candidate-card-width);
+		transform-style: preserve-3d;
+	}
+	.totals
+	{
+		position: absolute;
+		width: var(--tottem-candidate-card-width);
+		transform-style: preserve-3d;
+	}
+
+    .results
+    {
+        position: relative;
+        overflow: hidden;
+        width: 100%;
+    }
+        .results .header
+        {
+            z-index: 3;
+            position: relative;
+            padding: 16px 20px 14px 20px;
+            text-transform: uppercase;
+            box-shadow: 0 0 25px 3px var(--candidate-box-shadow-color);
+			background: linear-gradient( 160deg, var(--color-total-header-a) 0%, var(--color-total-header-b) 100%);
+        }
+            .results .header h2
+            {
+                color: var(--color-white);
+                font-family: 'Sentral_bold';
+                font-size: 1.4rem;
+                line-height: 1.4rem;
+                padding-bottom: 0;
+            }
+            .results .header h4
+            {
+                position: relative;
+                width: 100%;
+                color: var(--color-white);
+                font-family: 'Santral_semibold';
+                font-family: 'ATC_rg';
+                font-size: 1.1rem;
+                line-height: 1.1rem;
+                letter-spacing: 0.05rem;
+                display: grid;
+                grid-template-columns: auto 1fr;
+            }
+            .results .header h4 .totales
+            {
+                font-family: 'ATC_bd';
+                transition: all 0.75s ease-in-out;
+            }
+            .results .header h4 .total
+            {
+                text-align: right;
+            }
+                .results .header h4 .total span
+                {
+                    font-family: 'ATC_bd';
+                }
+            .results .header h4 img
+            {
+                height: 12px;
+                margin: 2px 0 0 4px;
+            }
+        .results .columns
+        {
+            z-index: 1;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            padding: 16px 20px 16px 20px;
+            grid-gap: 20px;
+            background: linear-gradient( 0deg, var(--color-card) 10%, var(--color-card-photo) 100%);
+        }
+            .results .columns .candidato
+            {
+                border: solid var(--candidate-border-size) var(--color-white);
+                background: linear-gradient( 0deg, var(--color-card) 25%, var(--candidate-box-shadow-color) 100%);
+                box-shadow: 0 3px 13px 0px var(--candidate-box-shadow-color);
+            }
+                .results .columns .apruebo .candidato-datos-nombre
+                {
+                    background: linear-gradient( 160deg, var(--color-voted-blue-a) 0%, var(--color-voted-blue-b) 100%);
+                }
+                .results .columns .apruebo .candidato-datos-votos .candidato-datos-votos-valor
+                {
+                    color: var(--color-voted-blue-b);
+                }
+                .results .columns .apruebo .candidato-datos-votos .candidato-voto
+                {
+                    background: linear-gradient( 160deg, var(--color-voted-blue-animation-a) 0%, var(--color-voted-blue-animation-b) 100%);
+                }
+                .results .columns .rechazo .candidato-datos-nombre
+                {
+                    background: linear-gradient( 160deg, var(--color-voted-red-a) 0%, var(--color-voted-red-b) 100%);
+                }
+                .results .columns .rechazo .candidato-datos-votos .candidato-datos-votos-valor
+                {
+                    color: var(--color-voted-red-a);
+                }
+                .results .columns .rechazo .candidato-datos-votos .candidato-voto
+                {
+                    background: linear-gradient( 160deg, var(--color-voted-red-animation-a) 0%, var(--color-voted-red-animation-b) 100%);
+                }
+                .results .columns .candidato .candidato-datos-nombre
+                {
+                    border-bottom: solid var(--candidate-border-size) var(--color-white);
+                    text-align: center;
+                    padding: 12px 0 1px 0;
+                }
+                    .results .columns .candidato .candidato-datos-nombre h2
+                    {
+                        font-family: 'Sentral_bold';
+                        font-size: 2.8rem;
+                        line-height: 2.8rem;
+                        color: var(--color-white);
+                    }
+                .results .columns .candidato .candidato-datos-votos
+                {
+                    position: relative;
+                    text-align: center;
+                    padding: 13px 0 5px 0;
+                }
+                    .results .columns .candidato .candidato-datos-votos .candidato-voto
+                    {
+                        z-index: 1;
+                        top: 0px;
+                        left: 0px;
+                        position: absolute;
+                        width: 100%;
+                        height: 100%;
+                        opacity: 0;
+                    }
+                    .results .columns .candidato .candidato-datos-votos .candidato-datos-votos-icono
+                    {
+                        position: relative;
+                        z-index: 3;
+                        height: 17px;
+                        margin: 0 0 10px 0;
+                    }
+                    .results .columns .candidato .candidato-datos-votos .candidato-datos-votos-icono img
+                    {
+                        content:url("/vav_plebiscito/app.imagenes/voto.17px.blue.png");
+                    }
+                    .results .columns .candidato .candidato-datos-votos .candidato-datos-votos-valor
+                    {
+                        position: relative;
+                        z-index: 3;
+                        font-family: 'Santral_estrabold';
+                        font-size: var(--candidate-voted-size-totals);
+                        line-height: var(--candidate-voted-size-totals);
+						letter-spacing: var(--candidate-voted-size-spacing);
+                    }
+
+
+	.box
+	{
+		position: relative;
+		overflow: hidden;
+		width: 100%;
+		background: linear-gradient( 0deg, #555 10%, #333 100%);
+	}
+		.box .header
+		{
+			z-index: 3;
+			position: relative;
+			padding: 16px 20px 14px 20px;
+			text-transform: uppercase;
+			background: var(--color-white);
+		}
+			.box .header h2
+			{
+				color: var(--color-black);
+				font-family: 'Sentral_bold';
+				font-size: 1.4rem;
+				line-height: 1.4rem;
+			}
+			.box .header h3
+			{
+				position: relative;
+				width: 100%;
+				color: var(--color-black);
+				font-family: 'ATC_rg';
+				font-size: 1.1rem;
+				line-height: 1.1rem;
+				letter-spacing: 0.03rem;
+			}
+				.box .header h3 span
+				{
+					font-family: 'ATC_bd';
+					font-size: 1.1rem;
+					line-height: 1.1rem;
+					margin-left: 8px;
+					padding: 0 0 0 11px;
+				}
+				.box .header h3 span::before
+				{
+					content: "";
+					position: absolute;
+					top: 2px;
+					margin-left: -12px;
+					width: 1px;
+					height: 12px;
+					background: #555;
+				}
+		.box .chart
+		{
+			position: relative;
+			width: 100%;
+			height: 150px;
+			overflow: hidden;
+		}
+			.box .chart .chart-details
+			{
+				z-index: 2;
+				position: absolute;	
+				width: 100%;
+				height: 100%;
+				font-family: 'Santral_semibold';
+				font-size: 1.1rem;
+				line-height: 1.1rem;
+			}
+				.box .chart .chart-details .chart-details-a
+				{
+					position: absolute;
+					top: 20px;
+					left: 20px;
+					color: var(--color-voted-blue-a);
+				}
+				.box .chart .chart-details .chart-details-r
+				{
+					position: absolute;
+					top: 20px;
+					right: 20px;
+					color: var(--color-voted-red-a);
+				}
+			.box .chart .chart-render
+			{
+				z-index: 1;
+				top: -38px;
+				left: calc( var(--tottem-candidate-card-width) / 2 - 125px );
+				position: absolute;
+				width: 250px;
+				height: 250px;
+			}
+		.box .columns
+		{
+			z-index: 1;
+			display: grid;
+			grid-template-columns: 1fr 1fr;
+		}
+			.box .columns .candidato
+			{
+				background: linear-gradient( 125deg, var(--color-card) 25%, var(--color-card-photo) 100%);
+			}
+				.box .columns .apruebo .candidato-datos-nombre
+				{
+					background: linear-gradient( 160deg, var(--color-voted-blue-a) 0%, var(--color-voted-blue-b) 100%);
+				}
+				.box .columns .apruebo .candidato-datos-votos .candidato-datos-votos-valor
+				{
+					color: var(--color-voted-blue-b);
+				}
+				.box .columns .apruebo .candidato-datos-votos .candidato-voto
+				{
+					background: linear-gradient( 160deg, var(--color-voted-blue-animation-a) 0%, var(--color-voted-blue-animation-b) 100%);
+				}
+				.box .columns .rechazo .candidato-datos-nombre
+				{
+					background: linear-gradient( 160deg, var(--color-voted-red-a) 0%, var(--color-voted-red-b) 100%);
+				}
+				.box .columns .rechazo .candidato-datos-votos .candidato-datos-votos-valor
+				{
+					color: var(--color-voted-red-a);
+				}
+				.box .columns .rechazo .candidato-datos-votos .candidato-voto
+				{
+					background: linear-gradient( 160deg, var(--color-voted-red-animation-a) 0%, var(--color-voted-red-animation-b) 100%);
+				}
+				.box .columns .candidato .candidato-datos-nombre
+				{
+					text-align: center;
+					padding: 14px 0 9px 0;
+				}
+					.box .columns .candidato .candidato-datos-nombre h2
+					{
+						font-family: 'Sentral_bold';
+						font-size: 1.2rem;
+						line-height: 1.2rem;
+						color: var(--color-white);
+					}
+				.box .columns .candidato .candidato-datos-votos
+				{
+					position: relative;
+					text-align: center;
+					padding: 16px 0 5px 0;
+				}
+					.box .columns .candidato .candidato-datos-votos .candidato-voto
+					{
+						z-index: 1;
+						top: 0px;
+						left: 0px;
+						position: absolute;
+						width: 100%;
+						height: 100%;
+						opacity: 0;
+					}
+					.box .columns .candidato .candidato-datos-votos .candidato-datos-votos-icono
+					{
+						display: none;
+						position: relative;
+						z-index: 3;
+						height: 17px;
+						margin: 0 0 10px 0;
+					}
+					.box .columns .candidato .candidato-datos-votos .candidato-datos-votos-icono img
+					{
+						content:url("/vav_plebiscito/app.imagenes/voto.17px.blue.png?v=1.2");
+					}
+					.box .columns .candidato .candidato-datos-votos .candidato-datos-votos-valor
+					{
+						position: relative;
+						z-index: 3;
+						font-family: 'Santral_estrabold';
+						font-size: var(--candidate-voted-size);
+						line-height: var(--candidate-voted-size);
+						letter-spacing: var(--candidate-voted-size-spacing);
+					}
+
+
+	@keyframes keyframe_voto
+	{
+		0% { opacity: 0 }
+		45% { opacity: 1 }
+		55% { opacity: 1 }
+		100% { opacity: 0 }
+	}
+	@keyframes keyframe_voto_texto
+	{
+		0% {  }
+		45% { color: #ffffff; }
+		55% { color: #ffffff; }
+		100% {  }
+	}
+	@keyframes keyframe_voto_icono
+	{
+		0% { filter: invert(0) }
+		45% { filter: invert(1) }
+		55% { filter: invert(1) }
+		100% { filter: invert(0) }
+	}

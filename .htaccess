@@ -1,0 +1,84 @@
+
+	RewriteEngine	On
+	RewriteBase		/vav_plebiscito/
+	 	
+	RewriteCond		%{REQUEST_FILENAME} !-f
+	RewriteCond		%{REQUEST_FILENAME} !-d
+	
+	Options			-Indexes
+
+#	demo
+
+#	-		-		-		-		-		-		-		-		-		-		-		-		-		-		-		-
+	
+#	Restricciones			
+	RedirectMatch	404		^/vav_plebiscito/configuracion.php$
+	
+#	-		-		-		-		-		-		-		-		-		-		-		-		-		-		-		-
+
+#	INICIAR SESION
+	RewriteRule 	^iniciar-sesion/validar/														/vav_plebiscito/app.sql/usuarios.php?f=usuarioValidar										[L]
+	RewriteRule 	^iniciar-sesion/salir/															/vav_plebiscito/app.sql/usuarios.php?f=usuarioSalir											[L]
+	RewriteRule 	^iniciar-sesion/																/vav_plebiscito/iniciar.sesion.php															[L]
+		
+#	PAIS
+	RewriteRule 	^paises/([0-9]+)																/vav_plebiscito/pais.php?&p=$1																[L]
+	RewriteRule 	^paises/																		/vav_plebiscito/pais.php?&p=0																[L]
+	
+#	OBJETOS
+	RewriteRule 	^objeto/imagen-nueva/															/vav_plebiscito/app.sql/objetos.imagenes.php?f=objetoImagenNueva							[L]
+	RewriteRule 	^objeto/imagen/eliminar/														/vav_plebiscito/app.sql/objetos.imagenes.php?f=objetoImagenEliminar							[L]
+	RewriteRule 	^objeto/estado/																	/vav_plebiscito/app.sql/objetos.php?f=objetoEstado											[L]
+
+#	SWICH
+	RewriteRule 	^swich/editar/																	/vav_plebiscito/app.sql/swich.php?f=swichEditar												[L]
+	RewriteRule 	^swich/mesas/																	/vav_plebiscito/app.sql/swich.php?f=swichMesas												[L]
+	RewriteRule 	^swich/mesas-actuales/															/vav_plebiscito/app.sql/swich.php?f=swichMesasActuales										[L]
+	RewriteRule 	^swich/mesas-totales/															/vav_plebiscito/app.sql/swich.php?f=swichMesasTotales										[L]
+
+#	MESAS USUARIOS MOVIL
+	RewriteRule 	^monitor-moviles/																/vav_plebiscito/monitor.moviles.php															[L]
+	RewriteRule 	^movil/obtener-mesas/([0-9]+)													/vav_plebiscito/app.sql/mesas.php?f=moviles_mesas&i=$1										[L]
+
+#	MESAS
+	RewriteRule 	^mesas/activar/																	/vav_plebiscito/app.sql/mesas.php?f=mesaActivar												[L]
+	RewriteRule 	^mesas/destacada/																/vav_plebiscito/app.sql/mesas.php?f=mesaDestacada											[L]
+	
+	RewriteRule 	^mesas/nueva/																	/vav_plebiscito/app.sql/mesas.php?f=mesa_nueva												[L]
+	RewriteRule 	^mesas/guardar/																	/vav_plebiscito/app.sql/mesas.php?f=mesa_guardar											[L]
+
+	RewriteRule 	^mesas/candidato/guardar/														/vav_plebiscito/app.sql/mesas.php?f=mesa_candidato_guardar									[L]
+
+	RewriteRule 	^mesas/detalles/([0-9]+)														/vav_plebiscito/app.sql/mesas.php?f=mesa_detalles&i=$1										[L]
+	RewriteRule 	^mesas/voto/																	/vav_plebiscito/app.sql/mesas.php?f=mesa_voto												[L]
+
+	RewriteRule 	^mesas/eliminar/																/vav_plebiscito/app.sql/mesas.php?f=mesa_eliminar											[L]
+
+	RewriteRule 	^mesas/editar/([0-9]+)															/vav_plebiscito/mesa.editar.php?&i=$1														[L]
+	RewriteRule 	^mesas/visualizador-publico/													/vav_plebiscito/mesa.visualizador.publico.php?&p=0											[L]
+	RewriteRule 	^mesas/visualizador/															/vav_plebiscito/mesa.visualizador.php?&p=0													[L]
+	RewriteRule 	^mesas/swich/totem/																/vav_plebiscito/mesa.swich.totem.php														[L]
+	RewriteRule 	^mesas/swich/totem-preview/														/vav_plebiscito/mesa.swich.totem.preview.php												[L]
+	RewriteRule 	^mesas/swich/																	/vav_plebiscito/mesa.swich.php?&p=0															[L]
+	RewriteRule 	^mesas/datos/([0-9]+)															/vav_plebiscito/app.sql/mesas.php?&f=mesaDatos&i=$1											[L]
+	RewriteRule 	^mesas/operador/([0-9]+)														/vav_plebiscito/mesa.usuario.php?&p=$1														[L]
+	RewriteRule 	^mesas/operador/																/vav_plebiscito/mesa.usuario.php?&p=0														[L]
+	RewriteRule 	^mesas/([0-9]+)																	/vav_plebiscito/mesa.php?&p=$1																[L]
+	RewriteRule 	^mesas/																			/vav_plebiscito/mesa.php?&p=0																[L]
+
+	RewriteRule 	^tv/																			/vav_plebiscito/mesa.swich.totem.php														[L]
+
+#	USUARIOS
+	RewriteRule 	^usuarios/json/																	/vav_plebiscito/app.sql/usuarios.php?f=usuarioJson											[L]
+	RewriteRule 	^usuarios/movil/																/vav_plebiscito/app.sql/usuarios.php?f=usuarioMovil											[L]
+	RewriteRule 	^usuarios/nuevo/																/vav_plebiscito/app.sql/usuarios.php?f=usuarioNuevo											[L]
+	RewriteRule 	^usuarios/editar/guardar/														/vav_plebiscito/app.sql/usuarios.php?f=usuarioEditar										[L]
+	RewriteRule 	^usuarios/editar/([0-9]+)														/vav_plebiscito/usuario.editar.php?&i=$1													[L]
+	RewriteRule 	^usuarios/eliminar/																/vav_plebiscito/app.sql/usuarios.php?&f=usuarioEliminar										[L]
+	RewriteRule 	^usuarios/([0-9]+)																/vav_plebiscito/usuario.php?&p=$1															[L]
+	RewriteRule 	^usuarios/																		/vav_plebiscito/usuario.php?&p=0															[L]
+
+	RewriteRule 	^reboot/																		/vav_plebiscito/reboot.php																	[L]
+
+#	JSON
+	RewriteRule 	^json/diccionario/																/vav_plebiscito/app.sql/json.php?f=diccionario												[L]

@@ -1,0 +1,690 @@
+
+	.lista
+	{
+		float: left;
+		width: 100%;
+	}
+		.basico .box
+		{
+			grid-template-columns: 35px 35px 1fr 1fr  240px;
+		}
+		.lista .titulo
+		{
+			background: var(--color-bg-box-a);
+		}
+			.lista .titulo .texto
+			{
+				color: var(--color-texto-2);
+			}
+		.lista .box
+		{
+			float: left;
+			width: 100%;
+			display: grid;
+			grid-column-gap: var(--padding-box-interior);
+			padding-top: var(--padding-box-interior-sub);
+			padding-bottom: var(--padding-box-interior-sub);
+			border-bottom: solid 1px var(--color-border-1);
+		}
+			.lista .box:last-child
+			{
+				border-bottom: none;
+			}
+			.lista .box:hover
+			{
+				background: var(--color-bg-box-a);
+			}
+			.lista .box div
+			{
+				align-self: center;
+				align-content: center;
+			}
+			.lista .box .id
+			{
+				font-size: 0.9rem;
+				line-height: 0.9rem;
+				color: var(--color-texto-2);
+				padding: 0 0 2px var(--padding-box-interior);
+			}
+			.lista .box .estado
+			{
+				float: left;
+				height: 30px;
+				border-radius: 28px;
+			}
+				.lista .box .estado-1
+				{
+					background: -webkit-linear-gradient(to bottom , var(--color-bg-boton-editar-a) , var(--color-bg-boton-editar) 85%);
+					background: -moz-linear-gradient(to bottom , var(--color-bg-boton-editar-a) , var(--color-bg-boton-editar) 85%);
+					background: -ms-linear-gradient(to bottom , var(--color-bg-boton-editar-a) , var(--color-bg-boton-editar) 85%);
+					background: linear-gradient(to bottom , var(--color-bg-boton-editar-a) , var(--color-bg-boton-editar) 85%);
+				}
+					.lista .box .estado-1 div
+					{
+						float: right;
+					}
+				.lista .box .estado-0
+				{
+					background: -webkit-linear-gradient(to bottom , var(--color-bg-boton-inactivo-a) , var(--color-bg-boton-inactivo) 85%);
+					background: -moz-linear-gradient(to bottom , var(--color-bg-boton-inactivo-a) , var(--color-bg-boton-inactivo) 85%);
+					background: -ms-linear-gradient(to bottom , var(--color-bg-boton-inactivo-a) , var(--color-bg-boton-inactivo) 85%);
+					background: linear-gradient(to bottom , var(--color-bg-boton-inactivo-a) , var(--color-bg-boton-inactivo) 85%);
+				}
+					.lista .box .estado-0 div
+					{
+						float: left;
+					}
+				.lista .box .enviando
+				{
+					background: var(--color-bg-box);
+				}
+					.lista .box .enviando div
+					{
+						display: none;
+					}
+					.lista .box .enviando article
+					{
+						float: left;
+						width: 100%;
+						text-align: center;
+						margin: 7px 0 0 0;
+					}
+						.lista .box .enviando article i
+						{
+							color: var(--color-texto-2);
+							font-size: 1rem;
+							animation:animacionRotar360 1.5s linear infinite;
+						}
+				.lista .box .estado div
+				{
+					width: 24px;
+					height: 24px;
+					border-radius: 24px;
+					background: var(--color-bg-box);
+					margin: 3px 3px 0 3px;
+					box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.25);
+					cursor: pointer;
+				}
+			.lista .box .texto
+			{
+				padding: 0 0 5px 0;
+			}
+			.lista .box .img
+			{
+				width: 30px;
+				height: 30px;
+				background: var(--color-border-1);
+			}
+				.lista .box img
+				{
+					object-fit: cover;
+					width: calc(100%);
+					height: calc(100%);
+				}
+				.lista .box .img-pais
+				{	
+					width: 45px;
+					height: 30px;
+					text-align: center;
+					vertical-align: middle;
+					overflow: hidden;
+				}
+					.lista .box .img-pais img
+					{
+						width: 100%;
+						height: 100%;
+					}
+			.lista .box .icono
+			{
+				padding: 0 0 4px 0;
+			}
+				.lista .box .icono i
+				{
+					font-size: 0.9rem;
+					margin: 0 6px 0 0;
+				}
+			.lista .box .informacion
+			{
+				justify-self: start;
+				justify-items: start;
+				padding: 0 var(--padding-box-interior) 0 0;
+			}
+			.lista .box .opciones
+			{
+				justify-self: end;
+				justify-items: end;
+			}
+				.lista .box .boton
+				{
+					float: left;
+					height: 21px;
+					align-self: center;
+					align-content: center;
+					font-size: 0.85rem;
+					line-height: 0.85rem;
+					word-spacing: 6px;
+					padding: 7px var(--padding-box-interior-sub) 0 var(--padding-box-interior-sub);
+					margin-right: var(--padding-box-interior);
+				}
+					.lista .box .boton:first-child
+					{
+						margin-right: var(--padding-box-interior-sub);
+					}
+					.lista .box .boton i
+					{
+						font-size: 0.75rem;
+						line-height: 0.75rem;
+					}
+			.lista .box .bold
+			{
+				color: var(--color-texto-1);
+				font-weight: 500;
+			}
+			.lista .box .color-principal
+			{
+				color: var(--color-texto-1-a);
+			}
+			.lista .box .color-secundario
+			{
+				color: var(--color-texto-1);
+			}
+			.lista .box .color-gris
+			{
+				color: var(--color-texto-2);
+			}
+			.lista .box .color-azul
+			{
+				color: var(--color-bg-boton-nuevo);
+			}
+			.lista .box .color-verde
+			{
+				color: var(--color-bg-boton-editar);
+			}
+			.lista .box .color-rojo
+			{
+				color: var(--color-bg-boton-eliminar);
+			}
+
+	.paginacion
+	{
+		float: left;
+		width: 100%;
+		display: grid;
+		grid-template-columns: 160px 1fr 300px;
+		padding-top: var(--padding-box-interior);
+		padding-bottom: var(--padding-box-interior);
+	/*	border-top: solid 1px var(--color-border-1);	*/
+		background: var(--color-bg-box-a);
+	}
+		.paginacion .total
+		{
+			color: var(--color-texto-1);
+			margin: -3px 0 0 var(--padding-box);
+		}
+			.paginacion .total h2
+			{
+				font-size: 1rem;
+				line-height: 1rem;
+				font-weight: 500;
+				padding: 0px 0 5px 0;
+			}
+			.paginacion .total h3
+			{
+				font-size: 1rem;
+				line-height: 1rem;
+				font-weight: 300;
+			}
+		.paginacion .paginas div
+		{
+			float: left;
+			color: var(--color-texto-2);
+			border: solid 1px var(--color-border-1);
+			background: var(--color-bg-box);
+			margin-right: var(--padding-box-interior-sub);
+			padding: 8px 12px 9px 12px;
+			cursor: pointer;
+		}
+			.paginacion .paginas div:hover
+			{
+				color: var(--color-texto-1);
+				border: solid 1px var(--color-texto-1);
+			}
+		.paginacion .paginas .on
+		{
+			color: var(--color-bg-box);
+			background: var(--color-texto-1);
+			border: solid 1px var(--color-texto-1);
+			cursor: default;
+		}
+			.paginacion .paginas .on:hover
+			{
+				color: var(--color-bg-box);
+			}
+		.paginacion .navegacion
+		{
+			margin-right: var(--padding-box-interior);
+		}
+		.paginacion .navegacion div
+		{
+			float: right;
+			font-size: 0.9rem;
+			line-height: 0.9rem;
+			color: var(--color-texto-1-a);
+			border: solid 1px var(--color-texto-1-a);
+			margin-left: var(--padding-box-interior-sub);
+			padding: 8px 16px 10px 16px;
+			cursor: pointer;
+		}
+			.paginacion .navegacion .of
+			{
+				color: var(--color-border-1);
+				background: var(--color-bg-box);
+				border: solid 1px var(--color-border-1);
+				cursor: default;
+			}
+			.paginacion .navegacion .on
+			{
+				color: var(--color-bg-box);
+				background: var(--color-texto-1);
+				border: solid 1px var(--color-texto-1);
+			}
+			.paginacion .navegacion div i
+			{
+				font-size: 0.8rem;
+				line-height: 0.8rem;
+			}
+			.paginacion .navegacion .fa-chevron-left
+			{
+				margin: 0 5px 0 0;
+			}
+			.paginacion .navegacion .fa-chevron-right
+			{
+				margin: 0 0 0 5px;
+			}
+
+	.lista-usuarios .box
+	{
+		grid-template-columns: 35px 50px 30px 200px 200px 190px 1fr 240px;
+	}
+
+	.verde
+	{
+		border-bottom: solid 2px var(--color-bg-boton-editar);
+	}
+	.amarillo
+	{
+		border-bottom: solid 2px #fff700;
+	}
+	.rojo
+	{
+		border-bottom: solid 2px var(--color-bg-boton-eliminar);
+	}
+	.gris
+	{
+		border-bottom: solid 2px var(--color-border-1);
+	}
+
+	.mesa
+	{
+		float: left;
+		position: relative;
+		width: 100%;
+		cursor: default;
+	}
+		.estado-0
+		{
+			opacity: 0.5;
+		}
+		.mesa .cambios
+		{
+			position: absolute;
+			width: 100%;
+			height: 100%;
+			background: transparent;
+			z-index: 5;
+			box-shadow: 0px 0px 0px 2px #ffd900;
+			display: none;
+		}
+		.mesa .destacado
+		{
+			position: absolute;
+			top: 20px;
+			right: 20px;
+		}
+			.mesa .destacado i
+			{
+				float: left;
+				color: #ffd900;
+				font-size: 1.4rem;
+				margin: 0 5px 0 15px;
+				animation: kf_opacity 1s ease infinite;
+			}
+				.mesa .destacado .fa-mobile-alt
+				{
+					display: none;
+					color: var(--color-texto-2);
+				}
+				.mesa .destacado .fa-laptop
+				{
+					display: none;
+					color: var(--color-texto-2);
+				}
+
+		.mesa .estado
+		{
+			float: left;
+			width: 36px;
+			height: 22px;
+			border-radius: 24px;
+			margin: 0 20px 0 0;
+		}
+			.mesa .estado-1
+			{
+				background: -webkit-linear-gradient(to bottom , var(--color-bg-boton-editar-a) , var(--color-bg-boton-editar) 85%);
+				background: -moz-linear-gradient(to bottom , var(--color-bg-boton-editar-a) , var(--color-bg-boton-editar) 85%);
+				background: -ms-linear-gradient(to bottom , var(--color-bg-boton-editar-a) , var(--color-bg-boton-editar) 85%);
+				background: linear-gradient(to bottom , var(--color-bg-boton-editar-a) , var(--color-bg-boton-editar) 85%);
+			}
+				.mesa .estado-1 div
+				{
+					float: right;
+				}
+			.mesa .estado-0
+			{
+				background: -webkit-linear-gradient(to bottom , var(--color-bg-boton-inactivo-a) , var(--color-bg-boton-inactivo) 85%);
+				background: -moz-linear-gradient(to bottom , var(--color-bg-boton-inactivo-a) , var(--color-bg-boton-inactivo) 85%);
+				background: -ms-linear-gradient(to bottom , var(--color-bg-boton-inactivo-a) , var(--color-bg-boton-inactivo) 85%);
+				background: linear-gradient(to bottom , var(--color-bg-boton-inactivo-a) , var(--color-bg-boton-inactivo) 85%);
+			}
+				.mesa .estado-0 div
+				{
+					float: left;
+				}
+			.mesa .enviando
+			{
+				background: var(--color-bg-box);
+			}
+				.mesa .enviando div
+				{
+					display: none;
+				}
+				.mesa .enviando article
+				{
+					float: left;
+					width: 100%;
+					text-align: center;
+					margin: 7px 0 0 0;
+				}
+					.mesa .enviando article i
+					{
+						color: var(--color-texto-2);
+						font-size: 1rem;
+						animation:animacionRotar360 1.5s linear infinite;
+					}
+				.mesa .estado div
+				{
+					width: 16px;
+					height: 16px;
+					border-radius: 16px;
+					background: var(--color-bg-box);
+					margin: 3px 3px 0 3px;
+					box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.25);
+					cursor: pointer;
+				}
+	
+		.mesa .opciones
+		{
+			position: absolute;
+			top: -15px;
+			right: 20px;
+			background: var(--color-border-1);
+			border: solid 1px var(--color-border-1);
+			color: var(--color-bg-box);
+			padding: 0 0 13px 20px;
+		}
+			.mesa .opciones div
+			{
+				float: left;
+			}
+			.mesa .opciones i
+			{
+				float: left;
+				font-size: 1rem;
+				line-height: 1rem;
+				color: var(--color-texto-1);
+				padding: 12px 0 0px 0px; 
+				margin: 0 20px 0px 0px; 
+				z-index: 99;
+				cursor: pointer;
+			}
+		.mesa header
+		{
+			float: left;
+			width: calc(100% - var(--padding-box-interior) * 2);
+			padding: var(--padding-box-interior) var(--padding-box-interior) 0 var(--padding-box-interior);
+		}
+			.mesa header h1
+			{
+				float: left;
+				width: 100%;
+				color: var(--color-texto-2);
+				font-size: 1rem;
+				line-height: 1rem;
+				font-weight: 300;
+				padding: 13px 0 1px 0;
+			}
+				.mesa header h1 i
+				{
+					font-size: 0.9rem;
+					margin: 0 6px 0 0;
+				}
+			.mesa header h2
+			{
+				float: left;
+				font-size: 1.55rem;
+				color: var(--color-texto-1);
+				font-weight: 500;
+			}
+				.mesa header h2 i
+				{
+					font-size: 1.4rem;
+					margin: 0 6px 0 0;
+				}
+			.mesa header .tipo
+			{
+				float: left;
+				width: 100%;
+				color: var(--color-texto-1);
+				font-size: 1rem;
+				line-height: 1rem;
+				font-weight: 400;
+				padding: 13px 0 0 0;
+			}
+				.mesa header .tipo i
+				{
+					font-size: 0.9rem;
+					margin: 0 5px 0 0;
+				}
+			.mesa header .zona
+			{
+				float: left;
+				width: 100%;
+				color: var(--color-texto-1-a);
+				font-size: 1rem;
+				line-height: 1rem;
+				font-weight: 300;
+				padding: 7px 0 0 0;
+			}
+			.mesa header h3
+			{
+				float: left;
+				width: 100%;
+				color: var(--color-texto-1);
+				font-size: 1.3rem;
+				line-height: 1.3rem;
+				font-weight: 500;
+				padding: 16px 0 0 0;
+				text-transform: uppercase;
+			}
+			.mesa header h4
+			{
+				float: left;
+				width: 100%;
+				color: var(--color-texto-1);
+				font-size: 1.3rem;
+				line-height: 1.3rem;
+				font-weight: 300;
+				padding: 6px 0 0 0;
+			}
+				.mesa header h4 i
+				{
+					font-size: 0.9rem;
+					line-height: 0.9rem;
+					margin: 0 4px 0 0;
+				}
+			.mesa header h5
+			{
+				float: left;
+				width: 100%;
+				color: var(--color-texto-1);
+				font-weight: 300;
+				padding: 13px 0 0 0;
+			}
+				.mesa header h5 i
+				{
+					width: 15px;
+					font-size: 0.9rem;
+					line-height: 0.9rem;
+					margin: 0 5px 0 0;
+				}
+			.mesa header h6
+			{
+				float: left;
+				width: 100%;
+				color: var(--color-texto-2);
+				font-weight: 300;
+				padding: 8px 0 22px 0;
+			}
+				.mesa header h6 i
+				{
+					width: 15px;
+					font-size: 0.9rem;
+					margin: 0 5px 0 0;
+				}
+				.mesa header h6 div
+				{
+					float: left;
+				}
+		.mesa footer
+		{
+			float: left;
+			width: calc(100%);
+			background: var(--color-bg-box-a);
+			background: -webkit-linear-gradient(to bottom , var(--color-bg-box-a) , var(--color-bg-box) 95%);
+			background: -moz-linear-gradient(to bottom , var(--color-bg-box-a) , var(--color-bg-box) 95%);
+			background: -ms-linear-gradient(to bottom , var(--color-bg-box-a) , var(--color-bg-box) 95%);
+			background: linear-gradient(to bottom , var(--color-bg-box-a) , var(--color-bg-box) 95%);
+			border-top: solid 1px var(--color-border-1);
+		}
+			.mesa footer
+			{
+				border-radius: 0px 0px 20px 20px;
+			}
+			.mesa footer article
+			{
+				float: left;
+				width: 50%;
+				font-size: 1rem;
+				line-height: 1rem;
+				text-align: center;
+				padding: 18px 0 20px 0;
+			}
+				.mesa footer article:first-child
+				{
+					width: calc(50% - 2px);
+					border-right: solid 1px var(--color-border-1);
+				}
+				.mesa footer article h2
+				{
+					float: left;
+					width: 100%;
+					color: var(--color-texto-1);
+					font-size: 1rem;
+					line-height: 1rem;
+					font-weight: 500;
+					margin: 0 0 7px 0;
+				}
+					.mesa footer article h2 i
+					{
+						width: 15px;
+						font-size: 0.9rem;
+						line-height: 0.9rem;
+						margin: 0 3px 0 0;
+					}
+				.mesa footer article h3
+				{
+					float: left;
+					width: 100%;
+					color: var(--color-texto-1);
+					font-size: 1.5rem;
+					line-height: 1.5rem;
+					font-weight: 300;
+				}
+
+	.boton-nuevo
+	{
+		color: var(--color-bg-boton-nuevo);
+		background: var(--color-bg-box);
+		border: solid 1px var(--color-bg-boton-nuevo);
+		cursor: pointer;
+	}
+		.boton-nuevo:hover
+		{
+			color: var(--color-bg-box);
+			background: var(--color-bg-boton-nuevo);
+		}
+	.boton-editar
+	{
+		color: var(--color-bg-boton-editar);
+		background: var(--color-bg-box);
+		border: solid 1px var(--color-bg-boton-editar);
+		cursor: pointer;
+	}
+		.boton-editar:hover
+		{
+			color: var(--color-bg-box);
+			background: var(--color-bg-boton-editar);
+		}
+	.boton-eliminar
+	{
+		color: var(--color-bg-boton-eliminar);
+		background: var(--color-bg-box);
+		border: solid 1px var(--color-bg-boton-eliminar);
+		cursor: pointer;
+	}
+		.boton-eliminar:hover
+		{
+			color: var(--color-bg-box);
+			background: var(--color-bg-boton-eliminar);
+		}
+	.boton-inactivo
+	{
+		color: var(--color-border-1);
+		background: var(--color-bg-box);
+		border: solid 1px var(--color-border-1);
+		cursor: default;
+	}
+	.informacion-usuario
+	{
+		color: var(--color-bg-boton-nuevo);
+		background: var(--color-bg-box);
+		border: solid 1px var(--color-bg-boton-nuevo);
+		cursor: default;
+	}
+
+	@keyframes kf_opacity
+	{
+		0% { opacity: 1 }
+		50% { opacity: 0.7 }
+		100% { opacity: 1 }
+	}

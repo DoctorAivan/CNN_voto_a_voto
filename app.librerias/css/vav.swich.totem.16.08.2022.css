@@ -1,0 +1,618 @@
+*
+{
+	margin: 0px;
+	padding: 0px;
+	border: 0px;
+}
+@font-face
+{
+	font-family: 'AT_bd';
+	src: local('ATTAleckSans_W_Bd'), url(fonts/ATTAleckSans_W_Bd.woff2) format('woff2');
+}
+@font-face
+{
+	font-family: 'AT_bk';
+	src: local('ATTAleckSans_W_Blk'), url(fonts/ATTAleckSans_W_Blk.woff2) format('woff2');
+}
+@font-face
+{
+	font-family: 'AT_it';
+	src: local('ATTAleckSans_W_It'), url(fonts/ATTAleckSans_W_It.woff2) format('woff2');
+}
+@font-face
+{
+	font-family: 'AT_md';
+	src: local('ATTAleckSans_W_Md'), url(fonts/ATTAleckSans_W_Md.woff2) format('woff2');
+}
+@font-face
+{
+	font-family: 'AT_rg';
+	src: local('ATTAleckSans_W_Rg'), url(fonts/ATTAleckSans_W_Rg.woff2) format('woff2');
+}
+@font-face
+{
+	font-family: 'AT_th';
+	src: local('ATTAleckSans_W_Th'), url(fonts/ATTAleckSans_W_Th.woff2) format('woff2');
+}
+@font-face
+{
+	font-family: "ATC_th";
+	src: local('ATTAleckCd_W_Lt'), url("fonts/ATTAleckCd_W_Lt.ttf") format("truetype");
+}
+@font-face
+{
+	font-family: "ATC_rg";
+	src: local('ATTAleckCd_Rg'), url("fonts/ATTAleckCd_Rg.ttf") format("truetype");
+}
+@font-face
+{
+	font-family: "ATC_md";
+	src: local('ATTAleckCd_W_Md'), url("fonts/ATTAleckCd_W_Md.ttf") format("truetype");
+}
+@font-face
+{
+	font-family: "ATC_bd";
+	src: local('ATTAleckCd_W_Bd'), url("fonts/ATTAleckCd_W_Bd.ttf") format("truetype");
+}
+@font-face
+{
+	font-family: "ATC_bk";
+	src: local('ATTAleckCd_W_Blk'), url("fonts/ATTAleckCd_W_Blk.ttf") format("truetype");
+}
+@font-face
+{
+	font-family: 'Flama';
+	src: url('fonts/Flama_Bold.otf') format("opentype");
+}
+
+@font-face
+{
+	font-family: "Santral_semibold";
+	src: local('Santral-SemiBold'), url("fonts/Santral-SemiBold.ttf") format("truetype");
+}
+
+@font-face
+{
+	font-family: "Sentral_bold";
+	src: local('Santral-Bold'), url("fonts/Santral-Bold.ttf") format("truetype");
+}
+
+@font-face
+{
+	font-family: "Santral_estrabold";
+	src: local('Santral-ExtraBold'), url("fonts/Santral-ExtraBold.ttf") format("truetype");
+}
+
+:root
+{
+	--tottem-candidate-card-width : 340px;
+	--tottem-candidate-card-margin : 15px;
+
+	--color-card-a : #ffffff;
+	--color-card-b : #cccccc;
+
+	--color-white : #ffffff;
+	--color-black : #000000;
+
+	--color-total-header-a : #ff2e79;
+	--color-total-header-b : #d61158;
+
+	--color-voted-blue-a : #1f35a1;
+	--color-voted-blue-b : #1c2f8e;
+	--color-voted-blue-animation-a : #1f35a196;
+	--color-voted-blue-animation-b : #1f35a100;
+
+	--color-voted-red-a : #ca0000;
+	--color-voted-red-b : rgb(187, 1, 1);
+	--color-voted-red-animation-a : #ca000096;
+	--color-voted-red-animation-b : #ca000000;
+
+	--candidate-voted-size : 3.4rem;
+	--candidate-voted-size-spacing : 0.1rem;
+
+	--candidate-voted-size-totals : 2.8rem;
+	--candidate-voted-size-totals-spacing : 0.05rem;
+
+	--candidate-border-size :2px;
+	--candidate-box-shadow-color :#b6b9ca;
+}
+
+body
+{
+	overflow: hidden;
+	background: transparent;
+}
+
+#render
+{
+	position: relative;
+	top: 0px;
+	left: 0px;
+	width: 1920px;
+	height: 922px;
+	height: 1080px;
+	background: url("http://10.3.75.100/cronometro_debates/libs/bg.png") no-repeat;
+	overflow: hidden;
+}
+	#render-mesa-1
+	{
+		z-index: 10;
+		position: absolute;
+	}
+	#render-mesa-2
+	{
+		z-index: 9;
+		position: absolute;
+	}
+	#render-totales
+	{
+		z-index: 11;
+		position: absolute;
+	}
+
+	.animar_voto
+	{
+		animation: keyframe_voto 1s ease 1 forwards;
+	}
+	.animar_voto_texto
+	{
+		animation: keyframe_voto_texto 1s ease 1 forwards;
+	}
+	.animar_voto_icono
+	{
+		animation: keyframe_voto_icono 1s ease 1 forwards;
+	}
+
+	.transition
+	{
+		transition: all 0.75s ease-in-out;
+	}
+	.transition-on
+	{
+		transition: left 0.75s ease, right 0.75s ease, transform 0.75s ease, bottom 0.75s ease;
+	}
+	.transition-of
+	{
+		transition: all 0s ease;
+	}
+
+	.tottem
+	{
+		position: absolute;
+		width: var(--tottem-candidate-card-width);
+		transform-style: preserve-3d;
+	}
+	.floating
+	{
+		position: absolute;
+		width: var(--tottem-candidate-card-width);
+		transform-style: preserve-3d;
+	}
+	.totals
+	{
+		position: absolute;
+		width: var(--tottem-candidate-card-width);
+		transform-style: preserve-3d;
+	}
+
+	.box
+	{
+		position: relative;
+		overflow: hidden;
+		width: 100%;
+		background: linear-gradient( 0deg, var(--color-card-a) 50%, var(--color-card-b) 100%);
+		border-radius: 0.5rem;
+	}
+		.box .header
+		{
+			z-index: 3;
+			position: relative;
+			padding: 14px 20px 17px 20px;
+			text-transform: uppercase;
+			background: var(--color-white);
+		}
+			.box .header h2
+			{
+				color: var(--color-black);
+				font-family: 'AT_bd';
+				font-size: 1.4rem;
+				line-height: 1.4rem;
+				margin: 0 0 3px 0;
+			}
+			.box .header h3
+			{
+				position: relative;
+				width: 100%;
+				color: var(--color-black);
+				font-family: 'ATC_rg';
+				font-size: 1.1rem;
+				line-height: 1.1rem;
+				letter-spacing: 0.03rem;
+			}
+				.box .header h3 span
+				{
+					font-family: 'ATC_bd';
+					font-size: 1.1rem;
+					line-height: 1.1rem;
+					margin-left: 8px;
+					padding: 0 0 0 11px;
+				}
+				.box .header h3 span::before
+				{
+					content: "";
+					position: absolute;
+					top: 2px;
+					margin-left: -12px;
+					width: 1px;
+					height: 12px;
+					background: #555;
+				}
+		.box .chart
+		{
+			position: relative;
+			width: 100%;
+			height: 157px;
+			overflow: hidden;
+			margin-top: -48px;
+		}
+			.box .chart .left
+			{
+				background-image: linear-gradient(to bottom, var(--color-voted-blue-a), var(--color-voted-blue-a));
+				transform: rotate(-40deg);
+			}
+			.box .chart .right
+			{
+				background-image: linear-gradient(to bottom, var(--color-voted-red-a), var(--color-voted-red-a));
+				transform: rotate(40deg);
+			}
+			.box .chart .center
+			{
+				background-image: linear-gradient(to bottom, #555, #999);
+				transform: rotate(0deg);
+			}
+			.box .chart .arrow
+			{
+				height: 0;
+				left: 50%;
+				position: absolute;
+				bottom: 26px;
+				width: 0;
+				transform-origin: 50% 100%;
+				margin: -68px -6px 0 -6px;
+				padding: 68px 3px 0 3px;
+				z-index: 2;
+				border-radius: 50% 50% 0 0;
+				border: solid 3px #ffffff;
+				transition: transform 0.75s ease-in-out;
+			}
+				.box .chart .pin
+				{
+					width: 16px;
+					height: 16px;
+					left:50%;
+					bottom: 18px;
+					margin: 0 0 0 -8px;
+					border-radius: 50%;
+					position: absolute;
+					background-image: linear-gradient(to bottom, #eee, #bbb);
+					z-index: 4;
+				}
+				.box .chart .inner
+				{
+					width: 10px;
+					height: 10px;
+					margin: 3px auto 0;
+					background-image: linear-gradient(to bottom, #bbb, #eee);
+					border-radius: 100%;
+					position: relative;
+				}
+			.box .chart .chart-render
+			{
+				z-index: 1;
+				top: -28px;
+				left: calc( var(--tottem-candidate-card-width) / 2 - 120px );
+				position: absolute;
+				width: 240px;
+				height: 240px;
+			}
+				.box .chart .chart-render path
+				{
+					transition: fill 0.5s ease-in-out;
+				}
+
+		.box .columns
+		{
+			z-index: 1;
+			display: grid;
+			grid-template-columns: 1fr 1fr;
+		}
+			.box .columns .candidato .candidato-datos
+			{
+				position: relative;
+				width: 100%;
+			}
+				.box .columns .candidato .apruebo .candidato-datos-nombre
+				{
+					color: var(--color-voted-blue-a);
+					text-align: left;
+				}
+				.box .columns .candidato .rechazo .candidato-datos-nombre
+				{
+					color: var(--color-voted-red-a);
+					text-align: right;
+				}
+
+				.box .columns .candidato .apruebo .candidato-voto
+				{
+					background: linear-gradient( 160deg, var(--color-voted-blue-animation-a) 0%, var(--color-voted-blue-animation-b) 75%);
+				}
+				.box .columns .candidato .rechazo .candidato-voto
+				{
+					background: linear-gradient( -160deg, var(--color-voted-red-animation-a) 0%, var(--color-voted-red-animation-b) 75%);
+				}
+
+				.box .columns .candidato .candidato-voto
+				{
+					z-index: 1;
+					top: 0px;
+					left: 0px;
+					position: absolute;
+					width: 100%;
+					height: 170%;
+					opacity: 0;
+				}
+				.box .columns .candidato .candidato-datos-nombre
+				{
+					z-index: 3;
+					position: relative;
+					text-align: left;
+					padding: 20px 25px 9px 25px;
+				}
+					.box .columns .candidato .candidato-datos-nombre h2
+					{
+						font-family: 'AT_bd';
+						font-size: 1.4rem;
+						line-height: 1.4rem;
+					}
+					.box .columns .candidato .candidato-datos-nombre h3
+					{
+						font-family: 'AT_bk';
+						font-size: var(--candidate-voted-size);
+						line-height: var(--candidate-voted-size);
+						letter-spacing: var(--candidate-voted-size-spacing);
+						margin: -2px 0 1px 0;
+					}
+					.box .columns .candidato .candidato-datos-nombre h4
+					{
+						font-family: 'AT_md';
+						font-size: 1.1rem;
+						line-height: 1.1rem;
+						letter-spacing: var(--candidate-voted-size-spacing);
+					}
+
+
+
+	.resultados
+	{
+		position: relative;
+		overflow: hidden;
+		width: 100%;
+		background: linear-gradient( 0deg, var(--color-card-a) 50%, var(--color-card-b) 100%);
+		border-radius: 0.5rem;
+	}
+		.resultados .header
+		{
+			z-index: 3;
+			position: relative;
+			padding: 14px 20px 17px 20px;
+			text-transform: uppercase;
+			background: var(--color-white);
+		}
+			.resultados .header h2
+			{
+				color: var(--color-black);
+				font-family: 'AT_bd';
+				font-size: 1.4rem;
+				line-height: 1.4rem;
+				margin: 0 0 3px 0;
+			}
+			.resultados .header h3
+			{
+				position: relative;
+				width: 100%;
+				color: var(--color-black);
+				font-family: 'ATC_rg';
+				font-size: 1.1rem;
+				line-height: 1.1rem;
+				letter-spacing: 0.03rem;
+			}
+				.resultados .header h3 span
+				{
+					font-family: 'ATC_bd';
+					font-size: 1.1rem;
+					line-height: 1.1rem;
+					margin-left: 8px;
+					padding: 0 0 0 11px;
+				}
+				.resultados .header h3 span::before
+				{
+					content: "";
+					position: absolute;
+					top: 2px;
+					margin-left: -12px;
+					width: 1px;
+					height: 12px;
+					background: #555;
+				}
+		.resultados .chart
+		{
+			position: relative;
+			width: 100%;
+			height: 157px;
+			overflow: hidden;
+			margin-top: -48px;
+		}
+			.resultados .chart .left
+			{
+				background-image: linear-gradient(to bottom, var(--color-voted-blue-a), var(--color-voted-blue-a));
+				transform: rotate(-40deg);
+			}
+			.resultados .chart .right
+			{
+				background-image: linear-gradient(to bottom, var(--color-voted-red-a), var(--color-voted-red-a));
+				transform: rotate(40deg);
+			}
+			.resultados .chart .center
+			{
+				background-image: linear-gradient(to bottom, #555, #999);
+				transform: rotate(0deg);
+			}
+			.resultados .chart .arrow
+			{
+				height: 0;
+				left: 50%;
+				position: absolute;
+				bottom: 26px;
+				width: 0;
+				transform-origin: 50% 100%;
+				margin: -68px -6px 0 -6px;
+				padding: 68px 3px 0 3px;
+				z-index: 2;
+				border-radius: 50% 50% 0 0;
+				border: solid 3px #ffffff;
+				transition: transform 0.75s ease-in-out;
+			}
+				.resultados .chart .pin
+				{
+					width: 16px;
+					height: 16px;
+					left:50%;
+					bottom: 18px;
+					margin: 0 0 0 -8px;
+					border-radius: 50%;
+					position: absolute;
+					background-image: linear-gradient(to bottom, #eee, #bbb);
+					z-index: 4;
+				}
+				.resultados .chart .inner
+				{
+					width: 10px;
+					height: 10px;
+					margin: 3px auto 0;
+					background-image: linear-gradient(to bottom, #bbb, #eee);
+					border-radius: 100%;
+					position: relative;
+				}
+			.resultados .chart .chart-render
+			{
+				z-index: 1;
+				top: -28px;
+				left: calc( var(--tottem-candidate-card-width) / 2 - 120px );
+				position: absolute;
+				width: 240px;
+				height: 240px;
+			}
+				.resultados .chart .chart-render path
+				{
+					transition: fill 0.5s ease-in-out;
+				}
+	
+		.resultados .columns
+		{
+			z-index: 1;
+			display: grid;
+			grid-template-columns: 1fr 1fr;
+		}
+			.resultados .columns .candidato .candidato-datos
+			{
+				position: relative;
+				width: 100%;
+			}
+				.resultados .columns .candidato .apruebo .candidato-datos-nombre
+				{
+					color: var(--color-voted-blue-a);
+					text-align: left;
+				}
+				.resultados .columns .candidato .rechazo .candidato-datos-nombre
+				{
+					color: var(--color-voted-red-a);
+					text-align: right;
+				}
+	
+				.resultados .columns .candidato .apruebo .candidato-voto
+				{
+					background: linear-gradient( 160deg, var(--color-voted-blue-animation-a) 0%, var(--color-voted-blue-animation-b) 75%);
+				}
+				.resultados .columns .candidato .rechazo .candidato-voto
+				{
+					background: linear-gradient( -160deg, var(--color-voted-red-animation-a) 0%, var(--color-voted-red-animation-b) 75%);
+				}
+	
+				.resultados .columns .candidato .candidato-voto
+				{
+					z-index: 1;
+					top: 0px;
+					left: 0px;
+					position: absolute;
+					width: 100%;
+					height: 170%;
+					opacity: 0;
+				}
+				.resultados .columns .candidato .candidato-datos-nombre
+				{
+					z-index: 3;
+					position: relative;
+					text-align: left;
+					padding: 20px 0 9px 0;
+				}
+					.resultados .columns .candidato .candidato-datos-nombre h2
+					{
+						font-family: 'AT_bd';
+						font-size: 1.4rem;
+						line-height: 1.4rem;
+					}
+					.resultados .columns .candidato .candidato-datos-nombre h3
+					{
+						font-family: 'AT_bk';
+						font-size: var(--candidate-voted-size-totals);
+						line-height: var(--candidate-voted-size-totals);
+						letter-spacing: var(--candidate-voted-size-totals-spacing);
+						margin: -1px 0 2px 0;
+					}
+					.resultados .columns .candidato .candidato-datos-nombre h4
+					{
+						font-family: 'AT_md';
+						font-size: 1.1rem;
+						line-height: 1.1rem;
+						letter-spacing: var(--candidate-voted-size-spacing);
+					}
+				.resultados .columns .candidato .apruebo .candidato-datos-nombre
+				{
+					padding-left: 25px;
+				}
+				.resultados .columns .candidato .rechazo .candidato-datos-nombre
+				{
+					padding-right: 25px;
+				}
+
+	@keyframes keyframe_voto
+	{
+		0% { opacity: 0 }
+		45% { opacity: 1 }
+		55% { opacity: 1 }
+		100% { opacity: 0 }
+	}
+	@keyframes keyframe_voto_texto
+	{
+		0% {  }
+		45% { color: #ffffff; }
+		55% { color: #ffffff; }
+		100% {  }
+	}
+	@keyframes keyframe_voto_icono
+	{
+		0% { filter: invert(0) }
+		45% { filter: invert(1) }
+		55% { filter: invert(1) }
+		100% { filter: invert(0) }
+	}

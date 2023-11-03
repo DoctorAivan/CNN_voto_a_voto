@@ -1,0 +1,41 @@
+Generar llave en servidor de explotacion
+
+    Crear Key RSA
+        ssh-keygen -t rsa -b 4096
+
+    Obtener RSA
+        cat id_rsa.pub
+
+    Agregar llave al servidor de respaldo
+ 
+Configuracion de postgresql
+
+    Editar la configuración de postgresql ( root )
+        vi /var/lib/pgsql/data/pg_hba.conf
+
+    Agregar los permisos al usuario de postgresql
+        local   all             app_vav                            md5
+
+        1   -   su postgres
+        2   -   psql
+        3   -   alter user app_vav with superuser;
+
+Crear ejecutor .sh
+
+        psql "postgresql://app_vav:nBwMQ6lj6OK2kAoI@localhost/VAV" -c "drop schema public cascade;create schema public;"; ssh ivillarroel@10.3.75.100 "cat /var/www/html/vav/app.dump/vav.sql" | psql "postgresql://app_vav:nBwMQ6lj6OK2kAoI@localhost/VAV"
+
+        #!/bin/sh
+
+        # Borrar esquema
+        psql "postgresql://app_vav:nBwMQ6lj6OK2kAoI@localhost/VAV" -c "drop schema public cascade;create schema public;";
+
+        # Pedir dump a servidor y guardar local
+        ssh ivillarroel@10.3.75.100 "cat /var/www/html/vav/app.dump/vav.sql" > /var/www/dumps/vav-`date +'%Y%m%d%H%M%S'`.sql;
+
+        # Tomar dump local y enviarlo a postgres
+        cat /var/www/dumps/vav-`date +'%Y%m%d%H%M%S'`.sql| psql "postgresql://app_vav:nBwMQ6lj6OK2kAoI@localhost/VAV";
+
+    chmod 755 ejecutor.sh
+
+    agendar al cromjob -e
+        * * * * * /var/www/ejecutor.sh  

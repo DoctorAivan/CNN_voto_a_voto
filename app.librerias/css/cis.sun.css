@@ -1,0 +1,40 @@
+:root
+{
+	--color-bg-body					:	#f4f7fc;
+	--color-bg-box					:	#ffffff;
+	--color-bg-box-a				:	#fdfdff;
+	--color-bg-box-b				:	#f2f2f8;
+	--color-bg-box-c				:	#ffffff;
+	--color-bg-box-hover			:	#f7f7ff;
+	--color-bg-shadow				:	rgba(134, 151, 227, 0.15);
+	--color-bg-shadow-light			:	rgba(134, 151, 227, 0.10);
+	--color-bg-shadow-hard			:	rgba(97, 97, 155, 0.3);
+	
+	--color-bg-navegacion			:	#52527d;
+	--color-bg-navegacion-a			:	#8686c6;
+	--color-bg-navegacion-texto		:	#ffffff;
+	--color-bg-navegacion-texto-a	:	#8686c6;
+	
+	--color-texto-1					:	#7676bb;
+	--color-texto-1-a				:	#43439b;
+	--color-texto-2					:	#9f9fbc;
+	--color-texto-parrafos			:	#999999;
+	
+	--color-border-1				:	#e6e6ef;
+	--color-border-2				:	#f2f2f8;
+
+	--filtro-brightness-light		:	brightness(1);
+	--filtro-brightness-over		:	brightness(1);
+	--filtro-brightness-on			:	brightness(1);
+	--filtro-scale-over				:	scale(1.05);
+	--filtro-scale-on				:	scale(1.05);
+	
+	--color-form-input				:	#000;
+
+	--filtro-cancha					:	brightness(1.1) grayscale(0%);
+}
+
+demo
+{
+	color: rgba(97, 97, 155, 0.2);
+}
